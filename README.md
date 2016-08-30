@@ -1,31 +1,29 @@
-## Synopsis
+## First Meeting with Dr. Moore (08/25)
 
-At the top of the file there should be a short introduction and/ or overview that explains **what** the project is. This description should match descriptions added for package managers (Gemspec, package.json, etc.)
+We met up with Dr. Moore, along with the other team, on August 25th to discuss initial requirements and get the client's general ideas for the Campus Map project. While generally she gave us a broad description of what she wanted, here is a list of ideas or requirements that were mentioned during the interview.
 
-## Code Example
+#### Requirements
 
-Show what the library does as concisely as possible, developers should be able to figure out **how** your project solves their problem by looking at the code example. Make sure the API you are showing off is obvious, and that your code is short and concise.
+*Outline of Campus Map
+*Building Map
+ *Interactive with the campus map, not just a pdf
+ *Include room numbers, offices, restaurants, etc.
+*Parking Lot Map
+*Map Showing Student Event Locations
+ *Event list along with the room and building location
+ *Viewable on the map
+*Interactive Student Mapping 
+ *Possibly a way for students to map their route between buildings and classes
+*Web or Mobile Application
+*Other Mentions
+ *Show where artwork is around campus
+ *Possibly give her students extra credit for graphic designs for the project.
 
-## Motivation
+#### Client Communication
 
-A short description of the motivation behind the creation and maintenance of the project. This should explain **why** the project exists.
+Prefered communication through email: cmoore10@ggc.edu
+Best available time for meeting up is Tuesdays and Thursdays between 2-3:30 PM
+Also available for skype meetings on other days
 
-## Installation
 
-Provide code examples and explanations of how to get the project.
 
-## API Reference
-
-Depending on the size of the project, if it is small and simple enough the reference docs can be added to the README. For medium size to larger projects it is important to at least provide a link to where the API reference docs live.
-
-## Tests
-
-Describe and show how to run the tests with code examples.
-
-## Contributors
-
-Let people know how they can dive into the project, include important links to things like issue trackers, irc, twitter accounts if applicable.
-
-## License
-
-A short snippet describing the license (MIT, Apache, etc.)
