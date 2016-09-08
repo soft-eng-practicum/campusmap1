@@ -5,7 +5,7 @@
 * Framework: Angular
 
 #### Team Members:
-1. Christopher Cates (Code Architect / Lead Developer)
-2. Adam Printz (Project Manager / Testing)
-3. Eric D. Kim (Code Architect / Documentation)
-4. Lance Toornman (UI & UX Design / Database)
+1. *Christopher Cates* (**Code Architect / Lead Developer**)
+2. *Adam Printz* (**Project Manager / Testing**)
+3. *Eric D. Kim* (**Code Architect / Documentation**)
+4. *Lance Toornman* (**UI & UX Design / Database**)
