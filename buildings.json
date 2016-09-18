@@ -1,0 +1,193 @@
+[{
+	"buildingA": {
+		"name": "Building A",
+		"foodServices": [
+			"Chick-Fil-A",
+			"Panda Express",
+			"Moe's Southwest Grill",
+			"P.O.D. Market (Provisions of Demand)"
+		],
+		"administrativeServices": [
+			"Help Desk"
+		],
+		"additionalDetails": [],
+		"pictures": [
+		"/images/building-a.png"
+		]
+	},
+	"buildingB": {
+		"name": "Building B",
+		"foodServices": [
+			"Enstein Bros. Bagels"
+		],
+		"administrativeServices": [
+			"Offics of Development",
+			"Human Resources",
+			"Academic Enhancement Center",
+			"School of Transitional Studies",
+			"Office of Public Affairs",
+			"Office of the Vice President",
+			"Office of the President"
+		],
+		"additionalDetails": [
+			"Student Commens Area",
+			"Computer Area: for general student use"
+		],
+		"pictures": [
+		"/images/building-b.png"
+		]
+	},
+	"buildingC": {
+		"name": "Building C",
+		"foodServices": [
+		],
+		"administrativeServices": [
+		"No administrative offices located within this building."
+		],
+		"additionalDetails": [
+		"Cisco Aditorium"
+		],
+		"pictures": [
+		"/images/building-c1.png",
+		"/images/building-c2.png"
+		]
+	},
+	"buildingD": {
+		"name": "Building D",
+		"foodServices": [
+		],
+		"administrativeServices": [
+		"Public Safety",
+		"Disability Services",
+		"Advising",
+		"Parking Services",
+		"Testing",
+		"Admissions",
+		"Financial Aid",
+		"Student Accounts",
+		"Registrar",
+		"Office of Internationalization"
+		],
+		"additionalDetails": [
+		],
+		"pictures": [
+		"/images/building-d.png"
+		]
+	},
+	"buildingE": {
+		"name": "Building E: Student Center",
+		"foodServices": [
+		"Main Dining Hall"
+		],
+		"administrativeServices": [
+		"Career Development",
+		"Claw Card Office",
+		"LVIS",
+		"Mail Services",
+		"Student Affairs",
+		"Student Integrity",
+		"Student Involvement"
+		],
+		"additionalDetails": [
+		"Game Room"
+		],
+		"pictures": [
+		"/images/building-e1.png",
+		"/images/building-e2.png",
+		"/images/building-e3.png"
+		]
+	},
+	"buildingF": {
+		"name": "Building F: Wellness and Recreation",
+		"foodServices": [
+		],
+		"administrativeServices": [
+		"Counseling and Psychological Services"
+		],
+		"additionalDetails": [
+		"Fitness Center",
+		"Outdoor Adventures"
+		],
+		"pictures": [
+		"/images/building-f.png"
+		]
+	},
+	"buildingG": {
+		"name": "Building G: Grizzly Athletics Complex",
+		"foodServices": [
+		],
+		"administrativeServices": [
+		],
+		"additionalDetails": [
+		"Administative/Staff Offices",
+		"Grizzly Baseball Field",
+		"Grizzly Soccer Field",
+		"Grizzly Softball Field"
+		],
+		"pictures": [
+		]
+	},
+	"buildingH": {
+		"name": "Building H: Allied Health and Services",
+		"foodServices": [
+		],
+		"administrativeServices": [
+		],
+		"additionalDetails": [
+		"Classrooms",
+		"Faculty Offices",
+		"Labroratories",
+		"Nursing classrooms and clinical areas",
+		"School of Health Sciences",
+		"School of Science and Technology"
+		],
+		"pictures": [
+		"/images/buiilding-h.png"
+		]
+	},
+	"buildingI": {
+		"name": "Building I",
+		"foodServices": [
+		],
+		"administrativeServices": [
+		],
+		"additionalDetails": [
+		"Faculty Offices"
+		],
+		"pictures": [
+		"/images/building-i1.png",
+		"/images/building-i2.png",
+		"/images/building-i3.png"
+		]
+	},
+	"buildingL": {
+		"name": "Building L: Daniel J. Kaufman Library $ Learning Center",
+		"foodServices": [
+		"Starbucks"
+		],
+		"administrativeServices": [
+		"Center for Teaching Excellence (CTE)"
+		],
+		"additionalDetails": [
+		"Student Computers Area"
+		],
+		"pictures": [
+		"/images/building-l1.png",
+		"/images/building-l2.png",
+		"/images/building-l3.png"
+		]
+	},
+	"buildingP": {
+		"name": "Building P",
+		"foodServices": [
+		],
+		"administrativeServices": [
+		],
+		"additionalDetails": [
+		"Faculty Offices",
+		"Warehouse - Recieving"
+		],
+		"pictures": [
+		]
+	}
+}]
