@@ -13,4 +13,8 @@ angular.module('myApp.view1', ['ngRoute'])
 	$http.get('/buildings.json').then(function(response) {
 		$scope.buildings = response.data;
 	});
+	$('map').imageMapResize();
+	$('#buildingb').click(function() {
+		console.log('test');
+	})
 }]);
