@@ -16,5 +16,6 @@ angular.module('myApp.view1', ['ngRoute'])
 	$('map').imageMapResize();
 	$('#buildingb').click(function() {
 		console.log('test');
-	})
+	});
+	
 }]);
