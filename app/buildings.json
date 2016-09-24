@@ -1,5 +1,6 @@
-[{
-	"buildingA": {
+{
+	"buildings": [
+	{
 		"name": "Building A",
 		"foodServices": [
 			"Chick-Fil-A",
@@ -15,7 +16,7 @@
 		"/images/building-a.png"
 		]
 	},
-	"buildingB": {
+	{
 		"name": "Building B",
 		"foodServices": [
 			"Enstein Bros. Bagels"
@@ -37,7 +38,7 @@
 		"/images/building-b.png"
 		]
 	},
-	"buildingC": {
+	{
 		"name": "Building C",
 		"foodServices": [
 		],
@@ -52,7 +53,7 @@
 		"/images/building-c2.png"
 		]
 	},
-	"buildingD": {
+	{
 		"name": "Building D",
 		"foodServices": [
 		],
@@ -74,7 +75,7 @@
 		"/images/building-d.png"
 		]
 	},
-	"buildingE": {
+	{
 		"name": "Building E: Student Center",
 		"foodServices": [
 		"Main Dining Hall"
@@ -97,7 +98,7 @@
 		"/images/building-e3.png"
 		]
 	},
-	"buildingF": {
+	{
 		"name": "Building F: Wellness and Recreation",
 		"foodServices": [
 		],
@@ -112,7 +113,7 @@
 		"/images/building-f.png"
 		]
 	},
-	"buildingG": {
+	{
 		"name": "Building G: Grizzly Athletics Complex",
 		"foodServices": [
 		],
@@ -127,7 +128,7 @@
 		"pictures": [
 		]
 	},
-	"buildingH": {
+	{
 		"name": "Building H: Allied Health and Services",
 		"foodServices": [
 		],
@@ -145,7 +146,7 @@
 		"/images/buiilding-h.png"
 		]
 	},
-	"buildingI": {
+	{
 		"name": "Building I",
 		"foodServices": [
 		],
@@ -158,7 +159,7 @@
 		"/images/building-i.png"
 		]
 	},
-	"buildingL": {
+	{
 		"name": "Building L: Daniel J. Kaufman Library $ Learning Center",
 		"foodServices": [
 		"Starbucks"
@@ -173,7 +174,7 @@
 		"/images/building-l.png"
 		]
 	},
-	"buildingP": {
+	{
 		"name": "Building P",
 		"foodServices": [
 		],
@@ -186,4 +187,5 @@
 		"pictures": [
 		]
 	}
-}]
+	]
+}
