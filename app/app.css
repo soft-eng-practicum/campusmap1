@@ -155,3 +155,160 @@
   max-height: 100%;
 }
 
+/* Added by Cody for personal CSS */
+.row {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 5px;
+  width: 100%; }
+
+.row-wrap {
+  -webkit-flex-wrap: wrap;
+  -moz-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap; }
+
+.row-no-padding {
+  padding: 0; }
+  .row-no-padding > .col {
+    padding: 0; }
+
+.row + .row {
+  margin-top: -5px;
+  padding-top: 0; }
+
+.item-icon-left .icon,
+.item-icon-right .icon {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  height: 100%;
+  font-size: 18px; }
+  .item-icon-left .icon:before,
+  .item-icon-right .icon:before {
+    display: block;
+    width: 32px;
+    text-align: center; }
+
+.item .fill-icon {
+  min-width: 30px;
+  min-height: 30px;
+  font-size: 28px; }
+
+.item-icon-left {
+  padding-left: 54px; }
+  .item-icon-left .icon {
+    left: 11px; }
+
+.item-complex.item-icon-left {
+  padding-left: 0; }
+  .item-complex.item-icon-left .item-content {
+    padding-left: 54px; }
+
+.item-icon-right {
+  padding-right: 54px; }
+  .item-icon-right .icon {
+    right: 11px; }
+
+.item-complex.item-icon-right {
+  padding-right: 0; }
+  .item-complex.item-icon-right .item-content {
+    padding-right: 54px; }
+
+.item-icon-left.item-icon-right .icon:first-child {
+  right: auto; }
+
+.item-icon-left.item-icon-right .icon:last-child,
+.item-icon-left .item-delete .icon {
+  left: auto; }
+
+.item-icon-left .icon-accessory,
+.item-icon-right .icon-accessory {
+  color: #ccc;
+  font-size: 16px; }
+
+.item-icon-left .icon-accessory {
+  left: 3px; }
+
+.item-icon-right .icon-accessory {
+  right: 3px; }
+  .panel-footer {
+    background-color: #223843;
+    border: 0px;
+  }
+.item {
+  border-color: #ddd;
+  color: #000000 ;
+  position: relative;
+  z-index: 2;
+  display: block;
+  margin: -1px;
+  padding: 16px;
+  border-width: 1px;
+  border-style: solid;
+  font-size: 16px; }
+  .item h2 {
+    margin: 0 0 2px 0;
+    font-size: 16px;
+    font-weight: normal; }
+  .item h3 {
+    margin: 0 0 4px 0;
+    font-size: 14px; }
+  .item h4 {
+    margin: 0 0 4px 0;
+    font-size: 12px; }
+  .item h5, .item h6 {
+    margin: 0 0 3px 0;
+    font-size: 10px; }
+  .item p {
+    color: #666;
+    font-size: 14px;
+    margin-bottom: 2px; }
+  .item h1:last-child,
+  .item h2:last-child,
+  .item h3:last-child,
+  .item h4:last-child,
+  .item h5:last-child,
+  .item h6:last-child,
+  .item p:last-child {
+    margin-bottom: 0; }
+.item-avatar,
+.item-avatar .item-content,
+.item-avatar-left,
+.item-avatar-left .item-content {
+  padding-left: 72px;
+  min-height: 72px; }
+  .item-avatar > img:first-child,
+  .item-avatar .item-image,
+  .item-avatar .item-content > img:first-child,
+  .item-avatar .item-content .item-image,
+  .item-avatar-left > img:first-child,
+  .item-avatar-left .item-image,
+  .item-avatar-left .item-content > img:first-child,
+  .item-avatar-left .item-content .item-image {
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    max-width: 40px;
+    max-height: 40px;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%; }
+
+.collapse {
+  display: none;
+}

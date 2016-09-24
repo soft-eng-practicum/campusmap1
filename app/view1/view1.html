@@ -16,6 +16,8 @@
   <area id="parkingdeck" href="javascript:void(0)" shape="rect" coords="675,297,732,322" style="outline:none;" target="_self"     />
   <area id="buildingg" href="javascript:void(0)" shape="rect" coords="558,138,615,163" style="outline:none;" target="_self"     />
   <area shape="rect" coords="998,754,1000,756" style="outline:none;" title="Image Map" href="javascript:void(0)" />
+
+
 </map>
 
     <script type="text/ng-template" id="modal.html">
@@ -23,10 +25,39 @@
             <h3 class="modal-title">{{buildingB.name}}</h3>
         </div>
         <div class="modal-body">
-            Modal content
+        <div id="menu">
+          <div class="panel list-group">
+            <a data-toggle="collapse" data-target="#sm" data-parent="#menu" class="item item-icon-right" style="text-decoration:none">
+                Administrative Offices <span class="badge">6</span>
+                <i class="icon ion-chevron-down"></i>
+            </a>
+            <div id="sm" class="sublinks collapse">
+              <div class="list-group-item small">Human Resources</div>
+              <div class="list-group-item small">Academic Enhancement Center (AEC)</div>
+              <div class="list-group-item small">School of Transitional Studies</div>
+              <div class="list-group-item small">Office of Public Affairs</div>
+              <div class="list-group-item small">Office of the President</div>
+              <div class="list-group-item small">Office of the Vice President</div>
+            </div>
+            <a data-toggle="collapse" data-target="#sm2" data-parent="#menu" class="item item-icon-right" style="text-decoration:none">
+              Food Services <span class="badge">1</span>
+              <i class="icon ion-chevron-down"></i>
+            </a>
+            <div id="sm2" class="sublinks collapse">
+              <div class="list-group-item small">Einstein Bros. Bagels</div>
+            </div>
+            <a data-toggle="collapse" data-target="#sm3" data-parent="#menu" class="item item-icon-right" style="text-decoration:none">
+              Addtional Details <span class="badge">2</span>
+              <i class="icon ion-chevron-down"></i>
+            </a>
+            <div id="sm3" class="sublinks collapse">
+              <div class="list-group-item small">Student Commons Area</div>
+              <div class="list-group-item small">Computer Area</div>
+            </div>
+          </div>
+        </div>
         </div>
         <div class="modal-footer">
-            <button class="btn btn-primary" ng-click="ok()">OK</button>
             <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
         </div>
     </script>
