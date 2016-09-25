@@ -22,37 +22,37 @@
 
     <script type="text/ng-template" id="modal.html">
         <div class="modal-header">
-            <h3 class="modal-title">{{buildingB.name}}</h3>
+            <h3 class="modal-title">{{selectedBuilding.name}}</h3>
         </div>
         <div class="modal-body">
         <div id="menu">
           <div class="panel list-group">
             <a data-toggle="collapse" data-target="#sm" data-parent="#menu" class="item item-icon-right" style="text-decoration:none">
-                Administrative Offices <span class="badge">6</span>
+                Administrative Offices <span class="badge">{{numAdministrativeServices}}</span>
                 <i class="icon ion-chevron-down"></i>
             </a>
             <div id="sm" class="sublinks collapse">
-              <div class="list-group-item small">Human Resources</div>
-              <div class="list-group-item small">Academic Enhancement Center (AEC)</div>
-              <div class="list-group-item small">School of Transitional Studies</div>
-              <div class="list-group-item small">Office of Public Affairs</div>
-              <div class="list-group-item small">Office of the President</div>
-              <div class="list-group-item small">Office of the Vice President</div>
+              <div ng-repeat="administrativeService in selectedBuilding.administrativeServices">
+                <div class="list-group-item small">{{administrativeService}}</div>
+              </div>
             </div>
             <a data-toggle="collapse" data-target="#sm2" data-parent="#menu" class="item item-icon-right" style="text-decoration:none">
-              Food Services <span class="badge">1</span>
+              Food Services <span class="badge">{{numFoodServices}}</span>
               <i class="icon ion-chevron-down"></i>
             </a>
             <div id="sm2" class="sublinks collapse">
-              <div class="list-group-item small">Einstein Bros. Bagels</div>
+              <div ng-repeat="foodService in selectedBuilding.foodServices">
+                <div class="list-group-item small">{{foodService}}</div>
+              </div>
             </div>
             <a data-toggle="collapse" data-target="#sm3" data-parent="#menu" class="item item-icon-right" style="text-decoration:none">
-              Addtional Details <span class="badge">2</span>
+              Addtional Services <span class="badge">{{numAdditionalServices}}</span>
               <i class="icon ion-chevron-down"></i>
             </a>
             <div id="sm3" class="sublinks collapse">
-              <div class="list-group-item small">Student Commons Area</div>
-              <div class="list-group-item small">Computer Area</div>
+              <div ng-repeat="additionalService in selectedBuilding.additionalServices">
+                <div class="list-group-item small">{{additionalService}}</div>
+              </div>
             </div>
           </div>
         </div>
