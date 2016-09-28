@@ -11,6 +11,8 @@ angular.module('myApp.view1', ['ngRoute', 'ui.bootstrap'])
 
 .controller('View1Ctrl', ['$scope', '$http', '$uibModal', function($scope, $http, $uibModal) {
 	$('map').imageMapResize();
+	$scope.showPicModal = false;
+	$scope.morethantwo = false;
 	$scope.selectedBuilding = {};
 
 	$http.get('/buildings.json').then(function(response) {
@@ -84,28 +86,40 @@ angular.module('myApp.view1', ['ngRoute', 'ui.bootstrap'])
 		});
 	});
 
+	$('#picModal').click(function() {
+		$scope.picModal();
+	});
+
 	$scope.showModal = function() {
 		$uibModal.open({
 			animation: true,
 			templateUrl: 'modal.html',
 			controller: 'ModalInstanceCtrl',
 			scope: $scope
-		})
+		});
 	};
-
-
 
 }])
 
 .controller('ModalInstanceCtrl', ['$scope', '$uibModalInstance', function($scope, $uibModalInstance) {
+	$scope.selectedPicture = "";
+
 	$scope.cancel = function() {
 		$uibModalInstance.dismiss('cancel');
+	}
+
+	$scope.showPic = function(picture) {
+		$scope.selectedPicture = picture;
+		$scope.showPicModal = true;
+	}
+
+	if($scope.selectedBuilding.pictures.length > 2) {
+		$scope.morethantwo = true;
 	}
 
 	$scope.numAdministrativeServices = $scope.selectedBuilding.administrativeServices.length;
 	$scope.numFoodServices = $scope.selectedBuilding.foodServices.length;
 	$scope.numAdditionalServices = $scope.selectedBuilding.additionalServices.length;
-
 
 }]);
 

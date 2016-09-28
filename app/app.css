@@ -312,3 +312,10 @@
 .collapse {
   display: none;
 }
+
+.closeModal {
+  float: right;
+  display: inline-block;
+}
+
+.center-block {float: none !important}

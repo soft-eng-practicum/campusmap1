@@ -7,7 +7,7 @@
   <area id="buildingh" href="javascript:void(0)" shape="rect" coords="480,367,530,417" style="outline:none;" target="_self"     />
   <area id="buildinga" href="javascript:void(0)" shape="rect" coords="612,382,672,432" style="outline:none;" target="_self"     />
   <area id="buildingi" href="javascript:void(0)" shape="rect" coords="553,574,574,624" style="outline:none;" target="_self"     />
-  <area id="buidingf" href="javascript:void(0)" shape="rect" coords="683,555,733,595" style="outline:none;" target="_self"     />
+  <area id="buildingf" href="javascript:void(0)" shape="rect" coords="683,555,733,595" style="outline:none;" target="_self"     />
   <area id="buildingd" href="javascript:void(0)" shape="rect" coords="757,407,807,447" style="outline:none;" target="_self"     />
   <area id="buildingp" href="javascript:void(0)" shape="rect" coords="714,372,764,412" style="outline:none;" target="_self"     />
   <area id="building1000" href="javascript:void(0)" shape="rect" coords="228,405,285,437" style="outline:none;" target="_self"     />
@@ -16,48 +16,75 @@
   <area id="parkingdeck" href="javascript:void(0)" shape="rect" coords="675,297,732,322" style="outline:none;" target="_self"     />
   <area id="buildingg" href="javascript:void(0)" shape="rect" coords="558,138,615,163" style="outline:none;" target="_self"     />
   <area shape="rect" coords="998,754,1000,756" style="outline:none;" title="Image Map" href="javascript:void(0)" />
-
-
 </map>
 
-    <script type="text/ng-template" id="modal.html">
-        <div class="modal-header">
-            <h3 class="modal-title">{{selectedBuilding.name}}</h3>
-        </div>
-        <div class="modal-body">
-        <div id="menu">
-          <div class="panel list-group">
-            <a data-toggle="collapse" data-target="#sm" data-parent="#menu" class="item item-icon-right" style="text-decoration:none">
-                Administrative Offices <span class="badge">{{numAdministrativeServices}}</span>
-                <i class="icon ion-chevron-down"></i>
-            </a>
-            <div id="sm" class="sublinks collapse">
-              <div ng-repeat="administrativeService in selectedBuilding.administrativeServices">
-                <div class="list-group-item small">{{administrativeService}}</div>
+<script type="text/ng-template" id="modal.html">
+  <div ng-show="showPicModal==false">
+    <div class="modal-header">
+      <h3 class="modal-title text-center">{{selectedBuilding.name}} <i class="icon ion-close-round pull-right" ng-click="cancel()"></i></h3>
+    </div>
+    <div class="modal-body">
+      <div class="well">
+        <div class="row center-block">
+          <div ng-repeat="picture in selectedBuilding.pictures">
+            <div ng-if="!morethantwo">
+              <div class="col-xs-6">
+                <img ng-src="{{picture}}" class="img-responsive img-thumbnail" ng-click="showPic(picture)">
               </div>
             </div>
-            <a data-toggle="collapse" data-target="#sm2" data-parent="#menu" class="item item-icon-right" style="text-decoration:none">
-              Food Services <span class="badge">{{numFoodServices}}</span>
-              <i class="icon ion-chevron-down"></i>
-            </a>
-            <div id="sm2" class="sublinks collapse">
-              <div ng-repeat="foodService in selectedBuilding.foodServices">
-                <div class="list-group-item small">{{foodService}}</div>
-              </div>
-            </div>
-            <a data-toggle="collapse" data-target="#sm3" data-parent="#menu" class="item item-icon-right" style="text-decoration:none">
-              Addtional Services <span class="badge">{{numAdditionalServices}}</span>
-              <i class="icon ion-chevron-down"></i>
-            </a>
-            <div id="sm3" class="sublinks collapse">
-              <div ng-repeat="additionalService in selectedBuilding.additionalServices">
-                <div class="list-group-item small">{{additionalService}}</div>
+            <div ng-if="morethantwo">
+              <div class="col-md-4">
+                <img ng-src="{{picture}}" class="img-responsive img-thumbnail" ng-click="showPic(picture)">
               </div>
             </div>
           </div>
         </div>
+      </div>
+      <div id="menu">
+        <div class="panel list-group">
+          <a data-toggle="collapse" data-target="#sm" data-parent="#menu" class="item item-icon-right" style="text-decoration:none">
+          Administrative Offices <span class="badge">{{numAdministrativeServices}}</span>
+          <i class="icon ion-chevron-down"></i>
+          </a>
+          <div id="sm" class="sublinks collapse">
+            <div ng-repeat="administrativeService in selectedBuilding.administrativeServices">
+              <div class="list-group-item small">{{administrativeService}}</div>
+            </div>
+          </div>
+          <a data-toggle="collapse" data-target="#sm2" data-parent="#menu" class="item item-icon-right" style="text-decoration:none">
+          Food Services <span class="badge">{{numFoodServices}}</span>
+          <i class="icon ion-chevron-down"></i>
+          </a>
+          <div id="sm2" class="sublinks collapse">
+            <div ng-repeat="foodService in selectedBuilding.foodServices">
+              <div class="list-group-item small">{{foodService}}</div>
+            </div>
+          </div>
+          <a data-toggle="collapse" data-target="#sm3" data-parent="#menu" class="item item-icon-right" style="text-decoration:none">
+          Addtional Services <span class="badge">{{numAdditionalServices}}</span>
+          <i class="icon ion-chevron-down"></i>
+          </a>
+          <div id="sm3" class="sublinks collapse">
+            <div ng-repeat="additionalService in selectedBuilding.additionalServices">
+              <div class="list-group-item small">{{additionalService}}</div>
+            </div>
+          </div>
         </div>
-        <div class="modal-footer">
-            <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
-        </div>
-    </script>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-warning" ng-click="cancel()">Close</button>
+    </div>
+  </div>
+  <div ng-show="showPicModal==true">
+    <div class="modal-header">
+      <div class="modal-title">
+        <h3 class="modal-title text-center">{{selectedBuilding.name}} <i class="icon ion-chevron-left pull-left" ng-click="showPicModal=false"></i></h3>
+      </div>
+    </div>
+    <div class="modal-body">
+      <img ng-src="{{selectedPicture}}" class="img-thumbnail">
+    </div>
+    <div class="modal-footer"></div>
+  </div>
+</script>

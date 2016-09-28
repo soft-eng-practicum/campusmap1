@@ -35,7 +35,7 @@
 			"Computer Area"
 		],
 		"pictures": [
-		"/images/building-b.png"
+		"/images/building-b-map.png"
 		]
 	},
 	{
@@ -49,8 +49,8 @@
 		"Cisco Aditorium"
 		],
 		"pictures": [
-		"/images/building-c1.png",
-		"/images/building-c2.png"
+		"/images/building-c1-map.png",
+		"/images/building-c2-map.png"
 		]
 	},
 	{
@@ -143,7 +143,9 @@
 		"School of Science and Technology"
 		],
 		"pictures": [
-		"/images/buiilding-h.png"
+		"/images/building-h1.png",
+		"/images/building-h2.png",
+		"/images/building-h3.png"
 		]
 	},
 	{
@@ -156,11 +158,12 @@
 		"Faculty Offices"
 		],
 		"pictures": [
-		"/images/building-i.png"
+		"/images/building-i1-2.png",
+		"/images/building-i1-3.png"
 		]
 	},
 	{
-		"name": "Building L: Daniel J. Kaufman Library $ Learning Center",
+		"name": "Building L: Daniel J. Kaufman Library & Learning Center",
 		"foodServices": [
 		"Starbucks"
 		],
@@ -171,7 +174,9 @@
 		"Student Computers Area"
 		],
 		"pictures": [
-		"/images/building-l.png"
+		"/images/buildingl1.png",
+		"/images/buildingl2.png",
+		"/images/buildingl3.png"
 		]
 	},
 	{
