@@ -319,3 +319,13 @@
 }
 
 .center-block {float: none !important}
+
+.modal-dialog {
+  width: 98%;
+  height: 98%;
+  padding: 0;
+}
+
+.modal-content {
+  height: 99%;
+}
