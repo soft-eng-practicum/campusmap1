@@ -2,5 +2,6 @@ node_modules/
 .DS_Store
 LICENSE
 bower_components/
+.bowerrc
 node_modules/
 **/.DS_Store

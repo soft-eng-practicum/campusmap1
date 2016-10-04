@@ -11,6 +11,7 @@ angular.module('myApp.view1', ['ngRoute', 'ui.bootstrap'])
 
 .controller('View1Ctrl', ['$scope', '$http', '$uibModal', function($scope, $http, $uibModal) {
 	$('map').imageMapResize();
+	$scope.hasPictures = false;
 	$scope.showPicModal = false;
 	$scope.morethantwo = false;
 	$scope.selectedBuilding = {};
@@ -103,6 +104,49 @@ angular.module('myApp.view1', ['ngRoute', 'ui.bootstrap'])
 
 .controller('ModalInstanceCtrl', ['$scope', '$uibModalInstance', function($scope, $uibModalInstance) {
 	$scope.selectedPicture = "";
+	$scope.active = 0;
+	$scope.noWrapSlides = false;
+	$scope.myInterval = 1000;
+	var slides = $scope.slides = [];
+	var currIndex = 0;
+
+	if($scope.selectedBuilding.pictures.length != 0) {
+		$scope.hasPictures = true;
+	}
+
+	$scope.addSlide = function() {
+		slides.push({
+			'src': $scope.selectedBuilding.pictures[currIndex].src,
+			caption: $scope.selectedBuilding.pictures[currIndex].caption,
+			id: currIndex++
+		});
+	}
+
+	$scope.selectedClick = function(index) {
+		var picture = $scope.selectedBuilding.pictures[index];
+		$scope.selectedPicture = picture;
+		$scope.showPicModal = true;
+	}
+
+	$scope.options = {
+		    sourceProp: 'src',
+            visible: 5,
+            perspective: 35,
+            startSlide: 0,
+            border: 3,
+            width: 360,
+            height: 270,
+            space: 220,
+            autoRotationSpeed: 0,
+            loop: true,
+            clicking: true,
+            controls: true
+	}
+
+	$scope.selectedBuilding.pictures.forEach(function(picture) {
+		$scope.addSlide();
+	});
+		
 
 	$scope.cancel = function() {
 		$uibModalInstance.dismiss('cancel');

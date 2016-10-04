@@ -318,4 +318,8 @@
   display: inline-block;
 }
 
+.nav, .pagination, .carousel, .panel-title a { cursor: pointer; }
+
 .center-block {float: none !important}
+
+

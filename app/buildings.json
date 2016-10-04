@@ -13,7 +13,10 @@
 		],
 		"additionalServices": [],
 		"pictures": [
-		"/images/building-a.png"
+		{
+			"src": "/images/building-a.png",
+			"caption": "Building A"
+		}
 		]
 	},
 	{
@@ -35,7 +38,10 @@
 			"Computer Area"
 		],
 		"pictures": [
-		"/images/building-b-map.png"
+		{
+			"src": "/images/building-b.png",
+			"caption": "Building B"
+		}
 		]
 	},
 	{
@@ -49,8 +55,26 @@
 		"Cisco Aditorium"
 		],
 		"pictures": [
-		"/images/building-c1-map.png",
-		"/images/building-c2-map.png"
+		{
+			"src": "/images/building-c-f1.png",
+			"caption": "Building C: Floor 1"
+		},
+		{
+			"src": "/images/building-c-f2.png",
+			"caption": "Building C: Floor 2"
+		},
+		{
+			"src": "/images/building-c3-fg.png",
+			"caption": "Building C, Phase 3: Ground Floor"
+		},
+		{
+			"src": "/images/building-c3-f1.png",
+			"caption": "Building C, Phase 3: Floor 1"
+		},
+		{
+			"src": "/images/building-c3-f2.png",
+			"caption": "Building C, Phase 3: Floor 2"
+		}
 		]
 	},
 	{
@@ -72,7 +96,10 @@
 		"additionalServices": [
 		],
 		"pictures": [
-		"/images/building-d.png"
+		{
+			"src": "/images/building-d.png",
+			"caption": "Building D"
+		}		
 		]
 	},
 	{
@@ -93,9 +120,18 @@
 		"Game Room"
 		],
 		"pictures": [
-		"/images/building-e1.png",
-		"/images/building-e2.png",
-		"/images/building-e3.png"
+		{
+			"src": "/images/building-e-f1.png",
+			"caption": "Building E: Floor 1"
+		},
+		{
+			"src": "/images/building-e-f2.png",
+			"caption": "Building E: Floor 2"
+		},
+		{
+			"src": "/images/building-e-f3.png",
+			"caption": "Building E: Floor 3"
+		}		
 		]
 	},
 	{
@@ -110,7 +146,10 @@
 		"Outdoor Adventures"
 		],
 		"pictures": [
-		"/images/building-f.png"
+		{
+			"src": "/images/building-f.png",
+			"caption": "Building F"
+		}	
 		]
 	},
 	{
@@ -143,9 +182,18 @@
 		"School of Science and Technology"
 		],
 		"pictures": [
-		"/images/building-h1.png",
-		"/images/building-h2.png",
-		"/images/building-h3.png"
+		{
+			"src": "/images/building-h-f1.png",
+			"caption": "Building H: Floor 1"
+		},
+		{
+			"src": "/images/building-h-f2.png",
+			"caption": "Building H: Floor 2"
+		},
+		{
+			"src": "/images/building-h-f3.png",
+			"caption": "Building H: Floor 3"
+		}	
 		]
 	},
 	{
@@ -158,8 +206,18 @@
 		"Faculty Offices"
 		],
 		"pictures": [
-		"/images/building-i1-2.png",
-		"/images/building-i1-3.png"
+		{
+			"src": "/images/building-i-f1.png",
+			"caption": "Building I: Floor 1"
+		},
+		{
+			"src": "/images/building-i-f2.png",
+			"caption": "Building I: Floor 2"
+		},
+		{
+			"src": "/images/building-i-f3.png",
+			"caption": "Building I: Floor 3"
+		}	
 		]
 	},
 	{
@@ -174,9 +232,18 @@
 		"Student Computers Area"
 		],
 		"pictures": [
-		"/images/buildingl1.png",
-		"/images/buildingl2.png",
-		"/images/buildingl3.png"
+		{
+			"src": "/images/building-l-f1.png",
+			"caption": "Building L: Floor 1"
+		},
+		{
+			"src": "/images/building-l-f2.png",
+			"caption": "Building L: Floor 2"
+		},
+		{
+			"src": "/images/building-l-f3.png",
+			"caption": "Building L: Floor 3"
+		}	
 		]
 	},
 	{
