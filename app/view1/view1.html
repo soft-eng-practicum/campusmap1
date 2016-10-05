@@ -1,4 +1,16 @@
-<img id="campusmap" src="images/campus-map.png" border="0" width="100%" height="100%" orgWidth="1000" orgHeight="756" usemap="#campus-map" />
+<div ng-controller="View1Ctrl as vm">
+  <div class="row" style="padding-bottom: 3px;">
+    <div class="col-xs-6 text-center">
+      <p>Upload Your Event Spreadsheet</p>
+      <input type="file" class="form-control" accept=".xls,.xlsx,.ods" fileread opts="vm.gridOptions" multiple="false" /></input>
+    </div>
+    <div class="col-xs-6 text-center">
+      <a href="Campus-Events-Spreadsheet.xlsx" download>Download the Spreadsheet</a>
+    </div>
+  </div>
+</div>
+<div style="border-top: 2px solid black;"></div>
+<img id="campusmap"  src="images/campus-map.png" border="0" width="100%" height="100%" orgWidth="1000" orgHeight="756" usemap="#campus-map" />
 <map name="campus-map" id="campusmap">
   <area id="buildingb" href="javascript:void(0)" shape="rect" coords="379,329,429,379" style="outline:none;" target="_self"     />
   <area id="buildingc" href="javascript:void(0)" shape="rect" coords="336,377,386,427" style="outline:none;" target="_self"     />

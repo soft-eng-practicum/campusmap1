@@ -10,11 +10,20 @@ angular.module('myApp.view1', ['ngRoute', 'ui.bootstrap'])
 }])
 
 .controller('View1Ctrl', ['$scope', '$http', '$uibModal', function($scope, $http, $uibModal) {
+	var vm = this;
+	vm.gridOptions = {};
+	vm.reset = reset();  
+
 	$('map').imageMapResize();
 	$scope.hasPictures = false;
 	$scope.showPicModal = false;
 	$scope.morethantwo = false;
 	$scope.selectedBuilding = {};
+
+	function reset() {
+		vm.gridOptions.data = [];
+		vm.gridOptions.columnDefs = [];
+	}
 
 	$http.get('/buildings.json').then(function(response) {
 		$scope.buildings = response.data.buildings;
@@ -99,7 +108,6 @@ angular.module('myApp.view1', ['ngRoute', 'ui.bootstrap'])
 			scope: $scope
 		});
 	};
-
 }])
 
 .controller('ModalInstanceCtrl', ['$scope', '$uibModalInstance', function($scope, $uibModalInstance) {
@@ -165,5 +173,45 @@ angular.module('myApp.view1', ['ngRoute', 'ui.bootstrap'])
 	$scope.numFoodServices = $scope.selectedBuilding.foodServices.length;
 	$scope.numAdditionalServices = $scope.selectedBuilding.additionalServices.length;
 
+}])
+
+.directive("fileread", [function () {
+  return {
+    scope: {
+      opts: '='
+    },
+    link: function ($scope, $elm, $attrs) {
+      $elm.on('change', function (changeEvent) {
+        var reader = new FileReader();
+        
+        reader.onload =function (evt) {
+          $scope.$apply(function () {
+            var data = evt.target.result;
+            
+            var workbook = XLSX.read(data, {type: 'binary'});
+            
+            var headerNames = XLSX.utils.sheet_to_json(
+                                workbook.Sheets[workbook.SheetNames[0]],
+                                { header: 1 }
+                              )[0];
+            
+            var data = XLSX.utils.sheet_to_json( workbook.Sheets[workbook.SheetNames[0]]);
+            
+            $scope.opts.columnDefs = [];
+            headerNames.forEach(function (h) {
+              $scope.opts.columnDefs.push({ field: h });
+            });
+            
+            $scope.opts.data = data;
+            console.log(data);
+            
+            $elm.val(null);
+          });
+        };
+        
+        reader.readAsBinaryString(changeEvent.target.files[0]);
+      });
+    }
+  }
 }]);
 

@@ -156,30 +156,7 @@
 }
 
 /* Added by Cody for personal CSS */
-.row {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -moz-box;
-  display: -moz-flex;
-  display: -ms-flexbox;
-  display: flex;
-  padding: 5px;
-  width: 100%; }
 
-.row-wrap {
-  -webkit-flex-wrap: wrap;
-  -moz-flex-wrap: wrap;
-  -ms-flex-wrap: wrap;
-  flex-wrap: wrap; }
-
-.row-no-padding {
-  padding: 0; }
-  .row-no-padding > .col {
-    padding: 0; }
-
-.row + .row {
-  margin-top: -5px;
-  padding-top: 0; }
 
 .item-icon-left .icon,
 .item-icon-right .icon {
@@ -322,3 +299,33 @@
 
 .center-block {float: none !important}
 
+.form-control {
+  font-size: 10px;
+}
+
+
+/* Prohibit portrait mode on mobile phones option
+#warning-message { 
+  display: none; 
+}
+
+@media only screen and (orientation:portrait){
+  #wrapper { display:none; }
+  #warning-message { display:block; }
+}
+
+@media only screen and (orientation:landscape){
+  #warning-message { display:none; }
+}
+*/
+
+
+.modal-dialog {
+  width: 98%;
+  height: 98%;
+  padding: 0;
+}
+
+.modal-content {
+  height: 99%;
+}
