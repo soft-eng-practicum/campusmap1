@@ -105,9 +105,12 @@ angular.module('myApp.view1', ['ngRoute', 'ui.bootstrap'])
 			animation: true,
 			templateUrl: 'modal.html',
 			controller: 'ModalInstanceCtrl',
-			scope: $scope
+			scope: $scope,
+			size: 'lg',
+			windowClass: 'my-modal-popup'
 		});
 	};
+
 }])
 
 .controller('ModalInstanceCtrl', ['$scope', '$uibModalInstance', function($scope, $uibModalInstance) {
