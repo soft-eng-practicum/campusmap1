@@ -25,8 +25,13 @@ angular.module('myApp.view1', ['ngRoute', 'ui.bootstrap'])
 		vm.gridOptions.columnDefs = [];
 	}
 
-	$http.get('/buildings.json').then(function(response) {
-		$scope.buildings = response.data.buildings;
+	$scope.getBuildings = function() {
+		return $http.get('/buildings.json').then(function(response) {
+			$scope.buildings = response.data.buildings;
+		});
+	}
+
+	$scope.getBuildings().then(function() {
 
 		var buildingA = $scope.buildings[0];
 		var buildingB = $scope.buildings[1];
@@ -94,11 +99,14 @@ angular.module('myApp.view1', ['ngRoute', 'ui.bootstrap'])
 			$scope.selectedBuilding = buildingP;
 			$scope.showModal();
 		});
+
+		
 	});
 
 	$('#picModal').click(function() {
 		$scope.picModal();
 	});
+
 
 	$scope.showModal = function() {
 		$uibModal.open({
