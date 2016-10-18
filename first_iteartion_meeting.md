@@ -3,7 +3,7 @@
 ### Introduction
 
 Our second meeting with our client(Dr. Moore) was to brief her on our progress and to show her our first working iteration of the product.
-* Eric was not able to attend the meeting with the client due to unforseen complicaitons dealing with a family member. 
+* *asteriks*Eric was not able to attend the meeting with the client due to unforseen complicaitons dealing with a family member. *asteriks*
 
 #### Requirements Presented To Client
 
