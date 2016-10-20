@@ -9,3 +9,7 @@
 2. *Adam Printz* (**Project Manager / Testing**)
 3. *Eric D. Kim* (**Client Liaison / Documentation**)
 4. *Lance Toornman* (**UI & UX Design / Database**)
+5. *Cengiz Gunay* (**Professional Advisor**)
+
+#### License 
+* Attribution-ShareAlike 4.0 Internationl
