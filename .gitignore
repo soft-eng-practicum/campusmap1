@@ -4,4 +4,6 @@ LICENSE
 bower_components/
 .bowerrc
 node_modules/
+.project
+.settings/
 **/.DS_Store

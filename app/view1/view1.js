@@ -142,9 +142,21 @@ angular.module('myApp.view1', ['ngRoute', 'ui.bootstrap'])
 	}
 
 	$scope.selectedClick = function(index) {
+		$scope.pictureCoords = [];
 		var picture = $scope.selectedBuilding.pictures[index];
 		$scope.selectedPicture = picture;
 		$scope.showPicModal = true;
+		for(var i = 0; i < $scope.selectedPicture.areas.length; i++) {
+			console.log($scope.selectedPicture.areas[i].coords);
+			$scope.pictureCoords = $scope.selectedPicture.areas[i].coords;
+		}
+		console.log($scope.pictureCoords.toString());
+
+		$('#picture-map').dynamicImageMap({
+			maps: [
+				{ coords: $scope.pictureCoords.toString(), classes: '', style: 'background: green', content: '<span>Rect</span>', href: "#" }
+			]
+		});
 	}
 
 	$scope.options = {
