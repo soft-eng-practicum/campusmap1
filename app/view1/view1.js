@@ -13,8 +13,7 @@ angular.module('myApp.view1', ['ngRoute', 'ui.bootstrap'])
 	var vm = this;
 	vm.gridOptions = {};
 	vm.reset = reset();  
-
-	$('map').imageMapResize();
+	$('#campusmap').imageMapResize();
 	$scope.hasPictures = false;
 	$scope.showPicModal = false;
 	$scope.morethantwo = false;
@@ -26,6 +25,8 @@ angular.module('myApp.view1', ['ngRoute', 'ui.bootstrap'])
 	}
 
 	$scope.getBuildings = function() {
+		if (!location.origin)
+			location.origin = location.protocol + "//" + location.host;
 		return $http.get('/buildings.json').then(function(response) {
 			$scope.buildings = response.data.buildings;
 		});
@@ -110,12 +111,13 @@ angular.module('myApp.view1', ['ngRoute', 'ui.bootstrap'])
 
 	$scope.showModal = function() {
 		$uibModal.open({
+			      ariaLabelledBy: 'modal-title',
+      ariaDescribedBy: 'modal-body',
 			animation: true,
 			templateUrl: 'modal.html',
 			controller: 'ModalInstanceCtrl',
 			scope: $scope,
-			size: 'lg',
-			windowClass: 'my-modal-popup'
+			size: 'lg'
 		});
 	};
 
@@ -146,17 +148,6 @@ angular.module('myApp.view1', ['ngRoute', 'ui.bootstrap'])
 		var picture = $scope.selectedBuilding.pictures[index];
 		$scope.selectedPicture = picture;
 		$scope.showPicModal = true;
-		for(var i = 0; i < $scope.selectedPicture.areas.length; i++) {
-			console.log($scope.selectedPicture.areas[i].coords);
-			$scope.pictureCoords = $scope.selectedPicture.areas[i].coords;
-		}
-		console.log($scope.pictureCoords.toString());
-
-		$('#picture-map').dynamicImageMap({
-			maps: [
-				{ coords: $scope.pictureCoords.toString(), classes: '', style: 'background: green', content: '<span>Rect</span>', href: "#" }
-			]
-		});
 	}
 
 	$scope.options = {
