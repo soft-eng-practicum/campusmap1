@@ -25,9 +25,11 @@ angular.module('myApp.view1', ['ngRoute', 'ui.bootstrap'])
 	}
 
 	$scope.getBuildings = function() {
-		if (!location.origin)
-			location.origin = location.protocol + "//" + location.host;
-		return $http.get(location.origin + '/buildings.json').then(function(response) {
+		var getUrl = window.location;
+var baseUrl = getUrl.protocol + "//" + getUrl.host + "/" + getUrl.pathname.split('/')[1];
+console.log(getUrl);
+console.log(baseUrl);
+		return $http.get(baseUrl + '/buildings.json').then(function(response) {
 			$scope.buildings = response.data.buildings;
 		});
 	}
