@@ -6,13 +6,10 @@ angular.module('myApp.view1', ['ngRoute', 'ui.bootstrap'])
   $routeProvider.when('/view1', {
     templateUrl: 'view1/view1.html',
     controller: 'View1Ctrl'
-  });
+  })
 }])
 
 .controller('View1Ctrl', ['$scope', '$http', '$uibModal', function($scope, $http, $uibModal) {
-	var vm = this;
-	vm.gridOptions = {};
-	vm.reset = reset();  
 	$('#campusmap').imageMapResize();
 	$scope.hasPictures = false;
 	$scope.showPicModal = false;
@@ -26,9 +23,9 @@ angular.module('myApp.view1', ['ngRoute', 'ui.bootstrap'])
 
 	$scope.getBuildings = function() {
 		var getUrl = window.location;
-var baseUrl = getUrl.protocol + "//" + getUrl.host + "/" + getUrl.pathname;
-console.log(getUrl);
-console.log(baseUrl);
+		var baseUrl = getUrl.protocol + "//" + getUrl.host + "/" + getUrl.pathname;
+		console.log(getUrl);
+		console.log(baseUrl);
 		return $http.get(baseUrl + '/buildings.json').then(function(response) {
 			$scope.buildings = response.data.buildings;
 		});
@@ -113,8 +110,8 @@ console.log(baseUrl);
 
 	$scope.showModal = function() {
 		$uibModal.open({
-			      ariaLabelledBy: 'modal-title',
-      ariaDescribedBy: 'modal-body',
+			ariaLabelledBy: 'modal-title',
+      		ariaDescribedBy: 'modal-body',
 			animation: true,
 			templateUrl: 'modal.html',
 			controller: 'ModalInstanceCtrl',
@@ -139,7 +136,7 @@ console.log(baseUrl);
 
 	$scope.addSlide = function() {
 		slides.push({
-			'src': $scope.selectedBuilding.pictures[currIndex].src,
+			'src': getUrl.pathname + $scope.selectedBuilding.pictures[currIndex].src,
 			caption: $scope.selectedBuilding.pictures[currIndex].caption,
 			id: currIndex++
 		});
@@ -189,45 +186,4 @@ console.log(baseUrl);
 	$scope.numFoodServices = $scope.selectedBuilding.foodServices.length;
 	$scope.numAdditionalServices = $scope.selectedBuilding.additionalServices.length;
 
-}])
-
-.directive("fileread", [function () {
-  return {
-    scope: {
-      opts: '='
-    },
-    link: function ($scope, $elm, $attrs) {
-      $elm.on('change', function (changeEvent) {
-        var reader = new FileReader();
-        
-        reader.onload =function (evt) {
-          $scope.$apply(function () {
-            var data = evt.target.result;
-            
-            var workbook = XLSX.read(data, {type: 'binary'});
-            
-            var headerNames = XLSX.utils.sheet_to_json(
-                                workbook.Sheets[workbook.SheetNames[0]],
-                                { header: 1 }
-                              )[0];
-            
-            var data = XLSX.utils.sheet_to_json( workbook.Sheets[workbook.SheetNames[0]]);
-            
-            $scope.opts.columnDefs = [];
-            headerNames.forEach(function (h) {
-              $scope.opts.columnDefs.push({ field: h });
-            });
-            
-            $scope.opts.data = data;
-            console.log(data);
-            
-            $elm.val(null);
-          });
-        };
-        
-        reader.readAsBinaryString(changeEvent.target.files[0]);
-      });
-    }
-  }
 }]);
-
