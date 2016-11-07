@@ -1,4 +1,4 @@
-<div id="myExcelDiv" style="width: 402px; height: 346px"></div>
+<div id="myExcelDiv" style="width: 402px; height: 346px; margin: 0 auto;"></div>
 <script type="text/javascript" src="https://r.office.microsoft.com/r/rlidExcelWLJS?v=1&kip=1"></script>
 <script type="text/javascript">
 	/*
@@ -8,7 +8,7 @@
 	 * values from your Excel file and how to use the rest of the object model. 
 	 */
 
-	// Use this file token to reference Book1.xlsx in Excel's APIs
+	// File token to link the user to the correct excel file saved on OneDrive
 	var fileToken = "SDC3A4940232850481!2954/-4349188602974632831/t=0&s=0&v=!ALFJkxr9JzZdIsk";
 	var ewa = null;
 
@@ -22,6 +22,7 @@
 	}
 
 	function loadEwaOnPageLoad() {
+		console.log("test");
 		var props = {
 			uiOptions: {
 				showDownloadButton: false,
@@ -40,12 +41,14 @@
 	}
 
 	function getRangeValues(result) {
+		console.log("getRangeValues");
 		var range = result.getUserContext();
 		var values = result.getReturnValue();
 		console.log(values);
 	}
 
 	function onEwaLoaded(result) {
+		console.log(result.getSucceeded());
 		if(result.getSucceeded()) {
 			ewa = Ewa.EwaControl.getInstances().getItem(0);
 			var range = ewa.getActiveWorkbook().getRange("Sheet1",0,0,3,2); //(parentName, firstRow, firstColumn, rowCount, columnCount)

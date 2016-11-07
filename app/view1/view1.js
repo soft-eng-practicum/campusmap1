@@ -24,8 +24,6 @@ angular.module('myApp.view1', ['ngRoute', 'ui.bootstrap'])
 	$scope.getBuildings = function() {
 		var getUrl = window.location;
 		var baseUrl = getUrl.protocol + "//" + getUrl.host + "/" + getUrl.pathname;
-		console.log(getUrl);
-		console.log(baseUrl);
 		return $http.get(baseUrl + '/buildings.json').then(function(response) {
 			$scope.buildings = response.data.buildings;
 		});
