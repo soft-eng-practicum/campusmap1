@@ -187,25 +187,6 @@ angular.module('myApp.view1', ['ngRoute', 'ui.bootstrap'])
 
 }]);
 
-//added by eric
-  //added by eric for sidebar functionality
-  //creates the side bar
-  $(document).ready(function(){
-    $('#right-menu').sidr({
-      name: 'sidr-right',
-      side: 'right'
-    });
-  });
-
-  //opens the side bar. works!
-  function openSide(){
-    $.sidr('open', 'sidr-right');
-  }
-
-  // close the side bar. Works
-  function closeSide(){
-    $.sidr('close', 'sidr-right');
-  }
 
 
 
