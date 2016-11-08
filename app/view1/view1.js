@@ -133,8 +133,9 @@ angular.module('myApp.view1', ['ngRoute', 'ui.bootstrap'])
 	}
 
 	$scope.addSlide = function() {
+
 		slides.push({
-			'src': getUrl.pathname + $scope.selectedBuilding.pictures[currIndex].src,
+			'src': $scope.selectedBuilding.pictures[currIndex].src,
 			caption: $scope.selectedBuilding.pictures[currIndex].caption,
 			id: currIndex++
 		});
