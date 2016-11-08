@@ -24,8 +24,6 @@ angular.module('myApp.view1', ['ngRoute', 'ui.bootstrap'])
 	$scope.getBuildings = function() {
 		var getUrl = window.location;
 		var baseUrl = getUrl.protocol + "//" + getUrl.host + "/" + getUrl.pathname;
-		console.log(getUrl);
-		console.log(baseUrl);
 		return $http.get(baseUrl + '/buildings.json').then(function(response) {
 			$scope.buildings = response.data.buildings;
 		});
@@ -135,8 +133,9 @@ angular.module('myApp.view1', ['ngRoute', 'ui.bootstrap'])
 	}
 
 	$scope.addSlide = function() {
+
 		slides.push({
-			'src': getUrl.pathname + $scope.selectedBuilding.pictures[currIndex].src,
+			'src': $scope.selectedBuilding.pictures[currIndex].src,
 			caption: $scope.selectedBuilding.pictures[currIndex].caption,
 			id: currIndex++
 		});

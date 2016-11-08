@@ -2,7 +2,58 @@
 
 <div class="panel panel-default">
   <div class="panel-body">
-    <div class="text-center">
+    <div class="text-center center-block"> 
+      <div id="myExcelDiv" style="width: 402px; height: 346px; margin: 0 auto;"></div>
+      <script type="text/javascript">
+        //use jQuery to load the script dependency for the excel web part to be displayed within the myExcelDiv above
+        $.getScript("https://r.office.microsoft.com/r/rlidExcelWLJS?v=1&kip=1", function() {
+          var fileToken = "SDC3A4940232850481!2954/-4349188602974632831/t=0&s=0&v=!ALFJkxr9JzZdIsk";
+          var ewa = null;
+          loadEwaOnPageLoad();
+
+          // run the Excel load handler on page load
+          if (window.attachEvent) {
+            window.attachEvent("onload", loadEwaOnPageLoad);
+          } else {
+            
+          }
+
+          function loadEwaOnPageLoad() {
+            console.log("test");
+            var props = {
+              uiOptions: {
+                showDownloadButton: false,
+                showParametersTaskPane: false
+              },
+              interactivityOptions: {
+                allowTypingAndFormulaEntry: false,
+                allowParameterModification: false,
+                allowSorting: false,
+                allowFiltering: false,
+                allowPivotTableInteractivity: false
+              }
+            };
+
+            Ewa.EwaControl.loadEwaAsync(fileToken, "myExcelDiv", props, onEwaLoaded);
+          }
+
+          function getRangeValues(result) {
+
+            var range = result.getUserContext();
+            var values = result.getReturnValue();
+            console.log(values);
+          }
+
+          function onEwaLoaded(result) {
+            console.log(result.getSucceeded());
+            if(result.getSucceeded()) {
+              ewa = Ewa.EwaControl.getInstances().getItem(0);
+              var range = ewa.getActiveWorkbook().getRange("Sheet1",0,0,3,2); //(parentName, firstRow, firstColumn, rowCount, columnCount)
+              range.getValuesAsync(Ewa.ValuesFormat.Unformatted,getRangeValues,range);
+            }
+          }
+          });
+      </script>
       <a href="https://1drv.ms/x/s!AoEEhTIClKTDlwqlS2AaD-7Fplgf"><button class="btn btn-success" style="margin: 10px">Access Campus Event Spreadsheet on OneDrive</button></a>
       <a href="test.htm"><button class="btn btn-primary">View Excel Spreadsheet</button></a>
     </div>

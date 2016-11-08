@@ -60,12 +60,7 @@
 		"pictures": [
 		{
 			"src": "/ImageEdits/campus-map.png",
-			"caption": "Building C: Floor 1",
-			"areas": [
-			{
-				"coords": [322,268,365,311]
-			}
-			]
+			"caption": "Building C: Floor 1"
 		},
 		{
 			"src": "/images/building-c-f2.png",
