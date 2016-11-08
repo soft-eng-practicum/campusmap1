@@ -1,3 +1,6 @@
+.pin {
+  background: url("images/pin.png");
+}
 .menu {
   list-style: none;
   border-bottom: 0.1em solid black;
@@ -37,10 +40,10 @@
 
 #aBuild {
   position: absolute;
-  bottom: 200px;
+  bottom: 10px;
   right: 300px;
   width: 60px;
-  height: 70px;
+  height: 10px;
   background: transparent;
   border: transparent;
   
