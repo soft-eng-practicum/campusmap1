@@ -16,11 +16,6 @@ angular.module('myApp.view1', ['ngRoute', 'ui.bootstrap'])
 	$scope.morethantwo = false;
 	$scope.selectedBuilding = {};
 
-	function reset() {
-		vm.gridOptions.data = [];
-		vm.gridOptions.columnDefs = [];
-	}
-
 	$scope.getBuildings = function() {
 		var getUrl = window.location;
 		var baseUrl = getUrl.protocol + "//" + getUrl.host + "/" + getUrl.pathname;
@@ -116,7 +111,11 @@ angular.module('myApp.view1', ['ngRoute', 'ui.bootstrap'])
 			scope: $scope,
 			size: 'lg'
 		});
-	};
+	}
+
+	$scope.getExcelValues = function(values) {
+		console.log(values);
+	}
 
 }])
 

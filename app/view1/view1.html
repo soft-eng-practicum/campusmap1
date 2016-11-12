@@ -1,97 +1,93 @@
 <!-- The implementation of the sidebar should be here but won't work so it is in index.html, for now.  -->
+<div ng-controller="View1Ctrl">
+  <div class="panel panel-default">
+    <div class="panel-body">
+      <div class="text-center center-block"> 
+        <div id="myExcelDiv" style="width: 402px; height: 346px; margin: 0 auto;"></div>
+        <script type="text/javascript">
+          //use jQuery to load the script dependency for the excel web part to be displayed within the myExcelDiv above
+          var values = [];
+          var $scope = angular.element($('[ng-controller=View1Ctrl]')).scope();
+          $.getScript("https://r.office.microsoft.com/r/rlidExcelWLJS?v=1&kip=1", function() {
+            var fileToken = "SDC3A4940232850481!2954/-4349188602974632831/t=0&s=0&v=!ALFJkxr9JzZdIsk";
+            var ewa = null;
+            loadEwaOnPageLoad();
 
-<div class="panel panel-default">
-  <div class="panel-body">
-    <div class="text-center center-block"> 
-      <div id="myExcelDiv" style="width: 402px; height: 346px; margin: 0 auto;"></div>
-      <script type="text/javascript">
-        //use jQuery to load the script dependency for the excel web part to be displayed within the myExcelDiv above
-        $.getScript("https://r.office.microsoft.com/r/rlidExcelWLJS?v=1&kip=1", function() {
-          var fileToken = "SDC3A4940232850481!2954/-4349188602974632831/t=0&s=0&v=!ALFJkxr9JzZdIsk";
-          var ewa = null;
-          loadEwaOnPageLoad();
+            function loadEwaOnPageLoad() {
+              var props = {
+                uiOptions: {
+                  showDownloadButton: false,
+                  showParametersTaskPane: false
+                },
+                interactivityOptions: {
+                  allowTypingAndFormulaEntry: false,
+                  allowParameterModification: false,
+                  allowSorting: false,
+                  allowFiltering: false,
+                  allowPivotTableInteractivity: false
+                }
+              };
 
-          // run the Excel load handler on page load
-          if (window.attachEvent) {
-            window.attachEvent("onload", loadEwaOnPageLoad);
-          } else {
-            
-          }
-
-          function loadEwaOnPageLoad() {
-            console.log("test");
-            var props = {
-              uiOptions: {
-                showDownloadButton: false,
-                showParametersTaskPane: false
-              },
-              interactivityOptions: {
-                allowTypingAndFormulaEntry: false,
-                allowParameterModification: false,
-                allowSorting: false,
-                allowFiltering: false,
-                allowPivotTableInteractivity: false
-              }
-            };
-
-            Ewa.EwaControl.loadEwaAsync(fileToken, "myExcelDiv", props, onEwaLoaded);
-          }
-
-          function getRangeValues(result) {
-
-            var range = result.getUserContext();
-            var values = result.getReturnValue();
-            console.log(values);
-          }
-
-          function onEwaLoaded(result) {
-            console.log(result.getSucceeded());
-            if(result.getSucceeded()) {
-              ewa = Ewa.EwaControl.getInstances().getItem(0);
-              var range = ewa.getActiveWorkbook().getRange("Sheet1",0,0,3,2); //(parentName, firstRow, firstColumn, rowCount, columnCount)
-              range.getValuesAsync(Ewa.ValuesFormat.Unformatted,getRangeValues,range);
+              Ewa.EwaControl.loadEwaAsync(fileToken, "myExcelDiv", props, onEwaLoaded);
             }
-          }
-          });
-      </script>
-      <a href="https://1drv.ms/x/s!AoEEhTIClKTDlwqlS2AaD-7Fplgf"><button class="btn btn-success" style="margin: 10px">Access Campus Event Spreadsheet on OneDrive</button></a>
-      <a href="test.htm"><button class="btn btn-primary">View Excel Spreadsheet</button></a>
+
+            function getRangeValues(result) {
+
+              var range = result.getUserContext();
+              var values = result.getReturnValue();
+              $scope.values = values;
+              $scope.$apply();
+              $scope.getExcelValues($scope.values);
+            }
+
+            function onEwaLoaded(result) {
+              if(result.getSucceeded()) {
+                ewa = Ewa.EwaControl.getInstances().getItem(0);
+                var range = ewa.getActiveWorkbook().getRange("Sheet1",0,0,3,2); //(parentName, firstRow, firstColumn, rowCount, columnCount)
+                range.getValuesAsync(Ewa.ValuesFormat.Unformatted,getRangeValues,range);
+              }
+            }
+            });
+        </script>
+        <a href="https://1drv.ms/x/s!AoEEhTIClKTDlwqlS2AaD-7Fplgf"><button class="btn btn-success" style="margin: 10px">Access Campus Event Spreadsheet on OneDrive</button></a>
+        <a href="test.htm"><button class="btn btn-primary">View Excel Spreadsheet</button></a>
+      </div>
     </div>
   </div>
+
+  <div style="border-top: 2px solid black;"></div>
+  <img id="campuspic" src="ImageEdits/campus-map.png" border="0" width="100%" height="100%" orgWidth="742" orgHeight="564" usemap="#campus-map" />
+  <map name="campus-map" id="campusmap">
+    <area id="buildingb" href="javascript:void(0)" shape="rect" coords="322,268,365,311" style="outline:none;" target="_self"     />
+    <area id="buildingc" href="javascript:void(0)" shape="rect" coords="272,311,323,361" style="outline:none;" target="_self"     />
+    <area id="buildinge" href="javascript:void(0)" shape="rect" coords="309,377,360,412" style="outline:none;" target="_self"     />
+    <area id="buildingl" href="javascript:void(0)" shape="rect" coords="370,365,421,400" style="outline:none;" target="_self"     />
+    <area id="buildingh" href="javascript:void(0)" shape="rect" coords="417,303,468,353" style="outline:none;" target="_self"     />
+    <area id="buildinga" href="javascript:void(0)" shape="rect" coords="533,324,625,372" style="outline:none;" target="_self"     />
+    <area id="buildingp" href="javascript:void(0)" shape="rect" coords="644,308,702,344" style="outline:none;" target="_self"     />
+    <area id="buildingd" href="javascript:void(0)" shape="rect" coords="698,347,737,387" style="outline:none;" target="_self"     />
+    <area id="buildingf" href="javascript:void(0)" shape="rect" coords="627,495,666,535" style="outline:none;" target="_self"     />
+    <area id="buildingi" href="javascript:void(0)" shape="rect" coords="494,504,510,562" style="outline:none;" target="_self"     />
+    <area id="building3000" href="javascript:void(0)" shape="rect" coords="102,350,139,375" style="outline:none;" target="_self"     />
+    <area id="building2000" href="javascript:void(0)" shape="rect" coords="108,290,145,315" style="outline:none;" target="_self"     />
+    <area id="building1000" href="javascript:void(0)" shape="rect" coords="173,347,232,368" style="outline:none;" target="_self"     />
+    <area id="buildingg" href="javascript:void(0)" shape="rect" coords="510,70,537,110" style="outline:none;" target="_self"     />
+    <area id="parkingdeck" href="javascript:void(0)" shape="rect" coords="621,229,661,269" style="outline:none;" target="_self"     />
+    <area id="agravelparkinglot2" href="javascript:void(0)" shape="rect" coords="448,393,489,458" style="outline:none;" target="_self"     />
+    <area id="agravelparkinglot1" href="javascript:void(0)" shape="rect" coords="554,424,595,476" style="outline:none;" target="_self"     />
+    <area id="housingparkinglot2" href="javascript:void(0)" shape="rect" coords="7,394,83,493" style="outline:none;" target="_self"     />
+    <area id="housingparkinglot1" href="javascript:void(0)" shape="rect" coords="193,304,269,337" style="outline:none;" target="_self"     />
+    <area id="bparkinglot2" href="javascript:void(0)" shape="rect" coords="401,242,504,272" style="outline:none;" target="_self"     />
+    <area id="bbuildingparkinglot1" href="javascript:void(0)" shape="rect" coords="374,273,404,302" style="outline:none;" target="_self"     />
+    <area id="hparkinglot" href="javascript:void(0)" shape="rect" coords="470,287,508,317" style="outline:none;" target="_self"     />
+    <area id="aparkinglot1" href="javascript:void(0)" shape="rect" coords="488,363,524,390" style="outline:none;" target="_self"     />
+    <area id="aparkinglot2" href="javascript:void(0)" shape="rect" coords="554,380,590,407" style="outline:none;" target="_self"     />
+    <area shape="rect" coords="740,562,742,564" style="outline:none;" title="Image Map" href="javascript:void(0)"  />
+  </map>
 </div>
 
-<div style="border-top: 2px solid black;"></div>
-<img id="campuspic" src="ImageEdits/campus-map.png" border="0" width="100%" height="100%" orgWidth="742" orgHeight="564" usemap="#campus-map" />
-<map name="campus-map" id="campusmap">
-  <area id="buildingb" href="javascript:void(0)" shape="rect" coords="322,268,365,311" style="outline:none;" target="_self"     />
-  <area id="buildingc" href="javascript:void(0)" shape="rect" coords="272,311,323,361" style="outline:none;" target="_self"     />
-  <area id="buildinge" href="javascript:void(0)" shape="rect" coords="309,377,360,412" style="outline:none;" target="_self"     />
-  <area id="buildingl" href="javascript:void(0)" shape="rect" coords="370,365,421,400" style="outline:none;" target="_self"     />
-  <area id="buildingh" href="javascript:void(0)" shape="rect" coords="417,303,468,353" style="outline:none;" target="_self"     />
-  <area id="buildinga" href="javascript:void(0)" shape="rect" coords="533,324,625,372" style="outline:none;" target="_self"     />
-  <area id="buildingp" href="javascript:void(0)" shape="rect" coords="644,308,702,344" style="outline:none;" target="_self"     />
-  <area id="buildingd" href="javascript:void(0)" shape="rect" coords="698,347,737,387" style="outline:none;" target="_self"     />
-  <area id="buildingf" href="javascript:void(0)" shape="rect" coords="627,495,666,535" style="outline:none;" target="_self"     />
-  <area id="buildingi" href="javascript:void(0)" shape="rect" coords="494,504,510,562" style="outline:none;" target="_self"     />
-  <area id="building3000" href="javascript:void(0)" shape="rect" coords="102,350,139,375" style="outline:none;" target="_self"     />
-  <area id="building2000" href="javascript:void(0)" shape="rect" coords="108,290,145,315" style="outline:none;" target="_self"     />
-  <area id="building1000" href="javascript:void(0)" shape="rect" coords="173,347,232,368" style="outline:none;" target="_self"     />
-  <area id="buildingg" href="javascript:void(0)" shape="rect" coords="510,70,537,110" style="outline:none;" target="_self"     />
-  <area id="parkingdeck" href="javascript:void(0)" shape="rect" coords="621,229,661,269" style="outline:none;" target="_self"     />
-  <area id="agravelparkinglot2" href="javascript:void(0)" shape="rect" coords="448,393,489,458" style="outline:none;" target="_self"     />
-  <area id="agravelparkinglot1" href="javascript:void(0)" shape="rect" coords="554,424,595,476" style="outline:none;" target="_self"     />
-  <area id="housingparkinglot2" href="javascript:void(0)" shape="rect" coords="7,394,83,493" style="outline:none;" target="_self"     />
-  <area id="housingparkinglot1" href="javascript:void(0)" shape="rect" coords="193,304,269,337" style="outline:none;" target="_self"     />
-  <area id="bparkinglot2" href="javascript:void(0)" shape="rect" coords="401,242,504,272" style="outline:none;" target="_self"     />
-  <area id="bbuildingparkinglot1" href="javascript:void(0)" shape="rect" coords="374,273,404,302" style="outline:none;" target="_self"     />
-  <area id="hparkinglot" href="javascript:void(0)" shape="rect" coords="470,287,508,317" style="outline:none;" target="_self"     />
-  <area id="aparkinglot1" href="javascript:void(0)" shape="rect" coords="488,363,524,390" style="outline:none;" target="_self"     />
-  <area id="aparkinglot2" href="javascript:void(0)" shape="rect" coords="554,380,590,407" style="outline:none;" target="_self"     />
-  <area shape="rect" coords="740,562,742,564" style="outline:none;" title="Image Map" href="javascript:void(0)"  />
-</map>
-
 <script type="text/ng-template" id="modal.html">
-  <div ng-show="showPicModal==false">
+  <div ng-show="showPicModal==false" close="cancel()">
     <div class="modal-header">
       <h3 class="modal-title text-center">{{selectedBuilding.name}} <i class="icon ion-close-round pull-right" ng-click="cancel()"></i></h3>
     </div>
