@@ -24,14 +24,6 @@ angular.module('myApp.view1', ['ngRoute', 'ui.bootstrap'])
 		});
 	}
 
-	$scope.showExcel = function() {
-		$scope.show = true;
-	}
-
-	$scope.hideExcel = function() {
-		$scope.show = false;
-	}
-
 	$scope.getBuildings().then(function() {
 
 		var buildingA = $scope.buildings[0];
@@ -101,7 +93,9 @@ angular.module('myApp.view1', ['ngRoute', 'ui.bootstrap'])
 			$scope.showModal();
 		});
 
-		
+		$scope.getExcelValues = function(values) {
+			console.log(values); // this is where the binding process will happen
+		}
 	});
 
 	$('#picModal').click(function() {
@@ -121,9 +115,7 @@ angular.module('myApp.view1', ['ngRoute', 'ui.bootstrap'])
 		});
 	}
 
-	$scope.getExcelValues = function(values) {
-		console.log(values);
-	}
+
 
 }])
 

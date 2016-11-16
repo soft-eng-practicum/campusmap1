@@ -3,8 +3,8 @@
   <div class="panel panel-default">
     <div class="panel-body">
       <div class="text-center"> 
-        <div ng-if="show">
-          <div id="myExcelDiv" style="width: 402px; height: 346px; margin: 0 auto;"></div>
+        <div ng-if="!show">
+          <div id="myExcelDiv" style="width: 402px; height: 346px; margin: 0 auto; position: absolute; top: -9999px; left: -9999px"></div>
           <script type="text/javascript">
             //use jQuery to load the script dependency for the excel web part to be displayed within the myExcelDiv above
             var values = [];
@@ -18,7 +18,8 @@
                 var props = {
                   uiOptions: {
                     showDownloadButton: false,
-                    showParametersTaskPane: false
+                    showParametersTaskPane: false,
+                    selectedCell: 'A1'
                   },
                   interactivityOptions: {
                     allowTypingAndFormulaEntry: false,
@@ -52,12 +53,6 @@
           </script>
         </div>
         <a href="https://1drv.ms/x/s!AoEEhTIClKTDlwqlS2AaD-7Fplgf"><button class="btn btn-success" style="margin: 10px">Access Campus Event Spreadsheet on OneDrive</button></a>
-        <div ng-if="!show">
-          <button class="btn btn-primary" ng-click="showExcel()">View Excel Spreadsheet</button>
-        </div>
-        <div ng-if="show">
-          <button class="btn btn-primary" ng-click="hideExcel()">Hide Excel Spreadsheet</button>
-        </div>
       </div>
     </div>
   </div>
