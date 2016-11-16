@@ -4,8 +4,7 @@ angular.module('myApp.view1', ['ngRoute', 'ui.bootstrap'])
 
 .config(['$routeProvider', function($routeProvider) {
   $routeProvider.when('/view1', {
-    templateUrl: 'view1/view1.html',
-    controller: 'View1Ctrl'
+    templateUrl: 'view1/view1.html'
   })
 }])
 
@@ -14,6 +13,7 @@ angular.module('myApp.view1', ['ngRoute', 'ui.bootstrap'])
 	$scope.hasPictures = false;
 	$scope.showPicModal = false;
 	$scope.morethantwo = false;
+	$scope.show = false;
 	$scope.selectedBuilding = {};
 
 	$scope.getBuildings = function() {
@@ -22,6 +22,14 @@ angular.module('myApp.view1', ['ngRoute', 'ui.bootstrap'])
 		return $http.get(baseUrl + '/buildings.json').then(function(response) {
 			$scope.buildings = response.data.buildings;
 		});
+	}
+
+	$scope.showExcel = function() {
+		$scope.show = true;
+	}
+
+	$scope.hideExcel = function() {
+		$scope.show = false;
 	}
 
 	$scope.getBuildings().then(function() {

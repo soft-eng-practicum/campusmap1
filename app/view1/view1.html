@@ -2,55 +2,62 @@
 <div ng-controller="View1Ctrl">
   <div class="panel panel-default">
     <div class="panel-body">
-      <div class="text-center center-block"> 
-        <div id="myExcelDiv" style="width: 402px; height: 346px; margin: 0 auto;"></div>
-        <script type="text/javascript">
-          //use jQuery to load the script dependency for the excel web part to be displayed within the myExcelDiv above
-          var values = [];
-          var $scope = angular.element($('[ng-controller=View1Ctrl]')).scope();
-          $.getScript("https://r.office.microsoft.com/r/rlidExcelWLJS?v=1&kip=1", function() {
-            var fileToken = "SDC3A4940232850481!2954/-4349188602974632831/t=0&s=0&v=!ALFJkxr9JzZdIsk";
-            var ewa = null;
-            loadEwaOnPageLoad();
+      <div class="text-center"> 
+        <div ng-if="show">
+          <div id="myExcelDiv" style="width: 402px; height: 346px; margin: 0 auto;"></div>
+          <script type="text/javascript">
+            //use jQuery to load the script dependency for the excel web part to be displayed within the myExcelDiv above
+            var values = [];
+            var $scope = angular.element($('[ng-controller=View1Ctrl]')).scope();
+            $.getScript("https://r.office.microsoft.com/r/rlidExcelWLJS?v=1&kip=1", function() {
+              var fileToken = "SDC3A4940232850481!2954/-4349188602974632831/t=0&s=0&v=!ALFJkxr9JzZdIsk";
+              var ewa = null;
+              loadEwaOnPageLoad();
 
-            function loadEwaOnPageLoad() {
-              var props = {
-                uiOptions: {
-                  showDownloadButton: false,
-                  showParametersTaskPane: false
-                },
-                interactivityOptions: {
-                  allowTypingAndFormulaEntry: false,
-                  allowParameterModification: false,
-                  allowSorting: false,
-                  allowFiltering: false,
-                  allowPivotTableInteractivity: false
-                }
-              };
+              function loadEwaOnPageLoad() {
+                var props = {
+                  uiOptions: {
+                    showDownloadButton: false,
+                    showParametersTaskPane: false
+                  },
+                  interactivityOptions: {
+                    allowTypingAndFormulaEntry: false,
+                    allowParameterModification: false,
+                    allowSorting: false,
+                    allowFiltering: false,
+                    allowPivotTableInteractivity: false
+                  }
+                };
 
-              Ewa.EwaControl.loadEwaAsync(fileToken, "myExcelDiv", props, onEwaLoaded);
-            }
-
-            function getRangeValues(result) {
-
-              var range = result.getUserContext();
-              var values = result.getReturnValue();
-              $scope.values = values;
-              $scope.$apply();
-              $scope.getExcelValues($scope.values);
-            }
-
-            function onEwaLoaded(result) {
-              if(result.getSucceeded()) {
-                ewa = Ewa.EwaControl.getInstances().getItem(0);
-                var range = ewa.getActiveWorkbook().getRange("Sheet1",0,0,3,2); //(parentName, firstRow, firstColumn, rowCount, columnCount)
-                range.getValuesAsync(Ewa.ValuesFormat.Unformatted,getRangeValues,range);
+                Ewa.EwaControl.loadEwaAsync(fileToken, "myExcelDiv", props, onEwaLoaded);
               }
-            }
-            });
-        </script>
+
+              function getRangeValues(result) {
+
+                var range = result.getUserContext();
+                var values = result.getReturnValue();
+                $scope.values = values;
+                $scope.$apply();
+                $scope.getExcelValues($scope.values);
+              }
+
+              function onEwaLoaded(result) {
+                if(result.getSucceeded()) {
+                  ewa = Ewa.EwaControl.getInstances().getItem(0);
+                  var range = ewa.getActiveWorkbook().getRange("Sheet1",0,0,3,2); //(parentName, firstRow, firstColumn, rowCount, columnCount)
+                  range.getValuesAsync(Ewa.ValuesFormat.Unformatted,getRangeValues,range);
+                }
+              }
+              });
+          </script>
+        </div>
         <a href="https://1drv.ms/x/s!AoEEhTIClKTDlwqlS2AaD-7Fplgf"><button class="btn btn-success" style="margin: 10px">Access Campus Event Spreadsheet on OneDrive</button></a>
-        <a href="test.htm"><button class="btn btn-primary">View Excel Spreadsheet</button></a>
+        <div ng-if="!show">
+          <button class="btn btn-primary" ng-click="showExcel()">View Excel Spreadsheet</button>
+        </div>
+        <div ng-if="show">
+          <button class="btn btn-primary" ng-click="hideExcel()">Hide Excel Spreadsheet</button>
+        </div>
       </div>
     </div>
   </div>
@@ -85,7 +92,6 @@
     <area shape="rect" coords="740,562,742,564" style="outline:none;" title="Image Map" href="javascript:void(0)"  />
   </map>
 </div>
-
 <script type="text/ng-template" id="modal.html">
   <div ng-show="showPicModal==false" close="cancel()">
     <div class="modal-header">
@@ -145,7 +151,9 @@
       </div>
     </div>
     <div class="modal-body text-center">
-      <img id="picture-map" ng-src="{{selectedPicture.src}}" class="img-thumbnail">
+      <div class="panel panel-default">
+        <img id="picture-map" ng-src="{{selectedPicture.src}}" class="img-thumbnail">
+      </div>
     </div>
     <div class="modal-footer"></div>
   </div>
