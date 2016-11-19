@@ -18,7 +18,8 @@
 			"src": "/images/building-a.png",
 			"caption": "Building A"
 		}
-		]
+		],
+		"events": []
 	},
 	{
 		"id": "B",
@@ -44,7 +45,9 @@
 			"src": "/images/building-b.png",
 			"caption": "Building B"
 		}
-		]
+		],
+		"events": [],
+		"numEvents": 0
 	},
 	{
 		"id": "C",

@@ -11,7 +11,8 @@
     "angular-loader": "~1.5.0",
     "angular-mocks": "~1.5.0",
     "angular-swipe": "~0.1.0",
-    "html5-boilerplate": "^5.3.0"
+    "html5-boilerplate": "^5.3.0",
+    "angular-http-loader": "^0.1.7"
   },
   "resolutions": {
     "angular": "~1.4.x"

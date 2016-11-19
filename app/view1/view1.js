@@ -14,7 +14,9 @@ angular.module('myApp.view1', ['ngRoute', 'ui.bootstrap'])
 	$scope.showPicModal = false;
 	$scope.morethantwo = false;
 	$scope.show = false;
+	$scope.done = false;
 	$scope.selectedBuilding = {};
+	$scope.columnHeaders = [];
 
 	$scope.getBuildings = function() {
 		var getUrl = window.location;
@@ -25,7 +27,6 @@ angular.module('myApp.view1', ['ngRoute', 'ui.bootstrap'])
 	}
 
 	$scope.getBuildings().then(function() {
-
 		var buildingA = $scope.buildings[0];
 		var buildingB = $scope.buildings[1];
 		var buildingC = $scope.buildings[2];
@@ -94,8 +95,14 @@ angular.module('myApp.view1', ['ngRoute', 'ui.bootstrap'])
 		});
 
 		$scope.getExcelValues = function(values) {
-			console.log(values); // this is where the binding process will happen
-		}
+			$scope.excelValues = values;
+			angular.forEach($scope.values, function(value) {
+				if(angular.equals("B", value[2])) {
+					buildingB.events.push(value);
+					buildingB.numEvents++;
+				}
+			})
+		};
 	});
 
 	$('#picModal').click(function() {
@@ -126,6 +133,7 @@ angular.module('myApp.view1', ['ngRoute', 'ui.bootstrap'])
 	$scope.myInterval = 1000;
 	var slides = $scope.slides = [];
 	var currIndex = 0;
+	console.log($scope.selectedBuilding);
 
 	if($scope.selectedBuilding.pictures.length != 0) {
 		$scope.hasPictures = true;

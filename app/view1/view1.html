@@ -45,7 +45,7 @@
               function onEwaLoaded(result) {
                 if(result.getSucceeded()) {
                   ewa = Ewa.EwaControl.getInstances().getItem(0);
-                  var range = ewa.getActiveWorkbook().getRange("Sheet1",0,0,3,2); //(parentName, firstRow, firstColumn, rowCount, columnCount)
+                  var range = ewa.getActiveWorkbook().getRange("Sheet1",0,0,3,6); //(parentName, firstRow, firstColumn, rowCount, columnCount)
                   range.getValuesAsync(Ewa.ValuesFormat.Unformatted,getRangeValues,range);
                 }
               }
@@ -106,28 +106,47 @@
       <div id="menu">
         <div class="panel list-group">
           <a data-toggle="collapse" data-target="#sm" data-parent="#menu" class="item item-icon-right" style="text-decoration:none">
-          Administrative Offices <span class="badge">{{numAdministrativeServices}}</span>
+          Upcoming Events <span class="badge">{{numEvents}}</span>
           <i class="icon ion-chevron-down"></i>
           </a>
           <div id="sm" class="sublinks collapse">
+            <div ng-repeat="event in selectedBuilding.events">
+              <div class="list-group-item small">
+                <div class="container-fluid">
+                  <ul class="list-inline">
+                    <li class="list-inline-item">Event: {{event[0]}}</li>
+                    <li class="list-inline-item">Location: {{event[2]}}{{event[1]}}</li>
+                    <li class="list-inline-item">When: {{event[3]}}, {{event[4]}}</li>
+                    <li class="list-inline-item">Additional Information: {{event[5]}}</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <a data-toggle="collapse" data-target="#sm2" data-parent="#menu" class="item item-icon-right" style="text-decoration:none">
+          Administrative Offices <span class="badge">{{numAdministrativeServices}}</span>
+          <i class="icon ion-chevron-down"></i>
+          </a>
+          <div id="sm2" class="sublinks collapse">
             <div ng-repeat="administrativeService in selectedBuilding.administrativeServices">
               <div class="list-group-item small">{{administrativeService}}</div>
             </div>
           </div>
-          <a data-toggle="collapse" data-target="#sm2" data-parent="#menu" class="item item-icon-right" style="text-decoration:none">
+          <a data-toggle="collapse" data-target="#sm3" data-parent="#menu" class="item item-icon-right" style="text-decoration:none">
           Food Services <span class="badge">{{numFoodServices}}</span>
           <i class="icon ion-chevron-down"></i>
           </a>
-          <div id="sm2" class="sublinks collapse">
+          <div id="sm3" class="sublinks collapse">
             <div ng-repeat="foodService in selectedBuilding.foodServices">
               <div class="list-group-item small">{{foodService}}</div>
             </div>
           </div>
-          <a data-toggle="collapse" data-target="#sm3" data-parent="#menu" class="item item-icon-right" style="text-decoration:none">
+          <a data-toggle="collapse" data-target="#sm4" data-parent="#menu" class="item item-icon-right" style="text-decoration:none">
           Additional Services <span class="badge">{{numAdditionalServices}}</span>
           <i class="icon ion-chevron-down"></i>
           </a>
-          <div id="sm3" class="sublinks collapse">
+          <div id="sm4" class="sublinks collapse">
             <div ng-repeat="additionalService in selectedBuilding.additionalServices">
               <div class="list-group-item small">{{additionalService}}</div>
             </div>
