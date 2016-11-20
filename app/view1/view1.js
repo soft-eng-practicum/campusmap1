@@ -97,12 +97,51 @@ angular.module('myApp.view1', ['ngRoute', 'ui.bootstrap'])
 		$scope.getExcelValues = function(values) {
 			$scope.excelValues = values;
 			angular.forEach($scope.values, function(value) {
-				if(angular.equals("B", value[2])) {
+				if(angular.equals("A", value[2])) {
+					buildingA.events.push(value);
+					buildingA.numEvents++;
+				}
+				else if(angular.equals("B", value[2])) {
 					buildingB.events.push(value);
 					buildingB.numEvents++;
 				}
+				else if(angular.equals("C", value[2])) {
+					buildingC.events.push(value);
+					buildingC.numEvents++;
+				}
+				else if(angular.equals("D", value[2])) {
+					buildingD.events.push(value);
+					buildingD.numEvents++;
+				}
+				else if(angular.equals("E", value[2])) {
+					buildingE.events.push(value);
+					buildingE.numEvents++;
+				}
+				else if(angular.equals("F", value[2])) {
+					buildingF.events.push(value);
+					buildingF.numEvents++;
+				}
+				else if(angular.equals("G", value[2])) {
+					buildingG.events.push(value);
+					buildingG.numEvents++;
+				}
+				else if(angular.equals("H", value[2])) {
+					buildingH.events.push(value);
+					buildingH.numEvents++;
+				}
+				else if(angular.equals("I", value[2])) {
+					buildingI.events.push(value);
+					buildingI.numEvents++;
+				}
+				else if(angular.equals("L", value[2])) {
+					buildingL.events.push(value);
+					buildingL.numEvents++;
+				}
+				else if(angular.equals("P", value[2])) {
+					buildingP.events.push(value);
+					buildingP.numEvents++;
+				}
 			});
-			console.log("test");
 			$scope.loaded = false;
 			$scope.$apply();
 		};

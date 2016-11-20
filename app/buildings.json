@@ -19,7 +19,8 @@
 			"caption": "Building A"
 		}
 		],
-		"events": []
+		"events": [],
+		"numEvents": 0
 	},
 	{
 		"id": "B",
@@ -62,7 +63,7 @@
 		],
 		"pictures": [
 		{
-			"src": "/ImageEdits/campus-map.png",
+			"src": "/ImageEdits/building-c-f1.png",
 			"caption": "Building C: Floor 1"
 		},
 		{
@@ -81,7 +82,9 @@
 			"src": "/ImageEdits/building-c3-f2.png",
 			"caption": "Building C, Phase 3: Floor 2"
 		}
-		]
+		],
+		"events": [],
+		"numEvents": 0
 	},
 	{
 		"id": "D",
@@ -107,7 +110,9 @@
 			"src": "/ImageEdits/building-d.png",
 			"caption": "Building D"
 		}		
-		]
+		],
+		"events": [],
+		"numEvents": 0
 	},
 	{
 		"id": "E",
@@ -140,7 +145,9 @@
 			"src": "/ImageEdits/building-e-f3.png",
 			"caption": "Building E: Floor 3"
 		}		
-		]
+		],
+		"events": [],
+		"numEvents": 0
 	},
 	{
 		"id": "F",
@@ -159,7 +166,9 @@
 			"src": "/ImageEdits/building-f.png",
 			"caption": "Building F"
 		}	
-		]
+		],
+		"events": [],
+		"numEvents": 0
 	},
 	{
 		"id": "G",
@@ -175,7 +184,9 @@
 		"Grizzly Softball Field"
 		],
 		"pictures": [
-		]
+		],
+		"events": [],
+		"numEvents": 0
 	},
 	{
 		"id": "H",
@@ -205,7 +216,9 @@
 			"src": "/ImageEdits/building-h-f3.png",
 			"caption": "Building H: Floor 3"
 		}	
-		]
+		],
+		"events": [],
+		"numEvents": 0
 	},
 	{
 		"id": "I",
@@ -230,7 +243,9 @@
 			"src": "/ImageEdits/building-i-f3.png",
 			"caption": "Building I: Floor 3"
 		}	
-		]
+		],
+		"events": [],
+		"numEvents": 0
 	},
 	{
 		"id": "L",
@@ -257,7 +272,9 @@
 			"src": "/ImageEdits/building-l-f3.png",
 			"caption": "Building L: Floor 3"
 		}	
-		]
+		],
+		"events": [],
+		"numEvents": 0
 	},
 	{
 		"id": "P",
@@ -271,7 +288,9 @@
 		"Warehouse - Recieving"
 		],
 		"pictures": [
-		]
+		],
+		"events": [],
+		"numEvents": 0
 	}
 	]
 }
