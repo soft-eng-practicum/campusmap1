@@ -14,7 +14,7 @@ angular.module('myApp.view1', ['ngRoute', 'ui.bootstrap'])
 	$scope.showPicModal = false;
 	$scope.morethantwo = false;
 	$scope.show = false;
-	$scope.done = false;
+	$scope.loaded = true;
 	$scope.selectedBuilding = {};
 	$scope.columnHeaders = [];
 
@@ -101,7 +101,10 @@ angular.module('myApp.view1', ['ngRoute', 'ui.bootstrap'])
 					buildingB.events.push(value);
 					buildingB.numEvents++;
 				}
-			})
+			});
+			console.log("test");
+			$scope.loaded = false;
+			$scope.$apply();
 		};
 	});
 
