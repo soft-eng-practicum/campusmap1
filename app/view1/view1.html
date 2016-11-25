@@ -1,182 +1,213 @@
-<!-- The implementation of the sidebar should be here but won't work so it is in index.html, for now.  -->
 <div ng-controller="View1Ctrl">
-  <div class="panel panel-default">
-    <div class="panel-body">
-      <div class="text-center"> 
-        <div ng-if="!show">
-          <div id="myExcelDiv" style="width: 402px; height: 346px; margin: 0 auto; position: absolute; top: -9999px; left: -9999px"></div>
-          <script type="text/javascript">
-            //use jQuery to load the script dependency for the excel web part to be displayed within the myExcelDiv above
-            var values = [];
-            var $scope = angular.element($('[ng-controller=View1Ctrl]')).scope();
-            $.getScript("https://r.office.microsoft.com/r/rlidExcelWLJS?v=1&kip=1", function() {
-              var fileToken = "SDC3A4940232850481!2954/-4349188602974632831/t=0&s=0&v=!ALFJkxr9JzZdIsk";
-              var ewa = null;
-              loadEwaOnPageLoad();
-
-              function loadEwaOnPageLoad() {
-                var props = {
-                  uiOptions: {
-                    showDownloadButton: false,
-                    showParametersTaskPane: false,
-                    selectedCell: 'A1'
-                  },
-                  interactivityOptions: {
-                    allowTypingAndFormulaEntry: false,
-                    allowParameterModification: false,
-                    allowSorting: false,
-                    allowFiltering: false,
-                    allowPivotTableInteractivity: false
-                  }
-                };
-
-                Ewa.EwaControl.loadEwaAsync(fileToken, "myExcelDiv", props, onEwaLoaded);
-              }
-
-              function getRangeValues(result) {
-
-                var range = result.getUserContext();
-                var values = result.getReturnValue();
-                $scope.values = values;
-                $scope.$apply();
-                $scope.getExcelValues($scope.values);
-              }
-
-              function onEwaLoaded(result) {
-                if(result.getSucceeded()) {
-                  ewa = Ewa.EwaControl.getInstances().getItem(0);
-                  var range = ewa.getActiveWorkbook().getRange("Sheet1",0,0,3,6); //(parentName, firstRow, firstColumn, rowCount, columnCount)
-                  range.getValuesAsync(Ewa.ValuesFormat.Unformatted,getRangeValues,range);
-                }
-              }
-              });
-          </script>
-        </div>
-        <a href="https://1drv.ms/x/s!AoEEhTIClKTDlwqlS2AaD-7Fplgf"><button class="btn btn-success" style="margin: 10px">Access Campus Event Spreadsheet on OneDrive</button></a>
-      </div>
-    </div>
-  </div>
-  
-  <div style="border-top: 2px solid black;"></div>
-  <img id="campuspic" src="ImageEdits/campus-map.png" border="0" width="100%" height="100%" orgWidth="742" orgHeight="564" usemap="#campus-map" />
-  <map name="campus-map" id="campusmap">
-    <area id="buildingb" href="javascript:void(0)" shape="rect" coords="322,268,365,311" style="outline:none;" target="_self"     />
-    <area id="buildingc" href="javascript:void(0)" shape="rect" coords="272,311,323,361" style="outline:none;" target="_self"     />
-    <area id="buildinge" href="javascript:void(0)" shape="rect" coords="309,377,360,412" style="outline:none;" target="_self"     />
-    <area id="buildingl" href="javascript:void(0)" shape="rect" coords="370,365,421,400" style="outline:none;" target="_self"     />
-    <area id="buildingh" href="javascript:void(0)" shape="rect" coords="417,303,468,353" style="outline:none;" target="_self"     />
-    <area id="buildinga" href="javascript:void(0)" shape="rect" coords="533,324,625,372" style="outline:none;" target="_self"     />
-    <area id="buildingp" href="javascript:void(0)" shape="rect" coords="644,308,702,344" style="outline:none;" target="_self"     />
-    <area id="buildingd" href="javascript:void(0)" shape="rect" coords="698,347,737,387" style="outline:none;" target="_self"     />
-    <area id="buildingf" href="javascript:void(0)" shape="rect" coords="627,495,666,535" style="outline:none;" target="_self"     />
-    <area id="buildingi" href="javascript:void(0)" shape="rect" coords="494,504,510,562" style="outline:none;" target="_self"     />
-    <area id="building3000" href="javascript:void(0)" shape="rect" coords="102,350,139,375" style="outline:none;" target="_self"     />
-    <area id="building2000" href="javascript:void(0)" shape="rect" coords="108,290,145,315" style="outline:none;" target="_self"     />
-    <area id="building1000" href="javascript:void(0)" shape="rect" coords="173,347,232,368" style="outline:none;" target="_self"     />
-    <area id="buildingg" href="javascript:void(0)" shape="rect" coords="510,70,537,110" style="outline:none;" target="_self"     />
-    <area id="parkingdeck" href="javascript:void(0)" shape="rect" coords="621,229,661,269" style="outline:none;" target="_self"     />
-    <area id="agravelparkinglot2" href="javascript:void(0)" shape="rect" coords="448,393,489,458" style="outline:none;" target="_self"     />
-    <area id="agravelparkinglot1" href="javascript:void(0)" shape="rect" coords="554,424,595,476" style="outline:none;" target="_self"     />
-    <area id="housingparkinglot2" href="javascript:void(0)" shape="rect" coords="7,394,83,493" style="outline:none;" target="_self"     />
-    <area id="housingparkinglot1" href="javascript:void(0)" shape="rect" coords="193,304,269,337" style="outline:none;" target="_self"     />
-    <area id="bparkinglot2" href="javascript:void(0)" shape="rect" coords="401,242,504,272" style="outline:none;" target="_self"     />
-    <area id="bbuildingparkinglot1" href="javascript:void(0)" shape="rect" coords="374,273,404,302" style="outline:none;" target="_self"     />
-    <area id="hparkinglot" href="javascript:void(0)" shape="rect" coords="470,287,508,317" style="outline:none;" target="_self"     />
-    <area id="aparkinglot1" href="javascript:void(0)" shape="rect" coords="488,363,524,390" style="outline:none;" target="_self"     />
-    <area id="aparkinglot2" href="javascript:void(0)" shape="rect" coords="554,380,590,407" style="outline:none;" target="_self"     />
-    <area shape="rect" coords="740,562,742,564" style="outline:none;" title="Image Map" href="javascript:void(0)"  />
-  </map>
-</div>
-<script type="text/ng-template" id="modal.html">
-<div ng-show="showPicModal==false" close="cancel()">
-  <div class="modal-header">
-    <h3 class="modal-title text-center">{{selectedBuilding.name}} <i class="icon ion-close-round pull-right" ng-click="cancel()"></i></h3>
-  </div>
-  <div class="modal-body">
-    <div ng-if="hasPictures">
-      <carousel3d ng-model="slides" options="options" on-selected-click="selectedClick(index)">
-        <carousel3d-slide ng-repeat="slide in slides track by $index">
-          <figure>
-            <img ng-src="{{slide.src}}" alt=""/>
-            <figcaption ng-bind="slide.caption"></figcaption>
-          </figure>
-        </carousel3d-slide>
-      </carousel3d>
-    </div>
-    <div ng-hide="!loaded">
-      <div class="progress">
-        <div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
-        </div>
-      </div>
-    </div>
-    <div ng-hide="loaded">
-      <div id="menu">
-        <div class="panel list-group">
-          <a data-toggle="collapse" data-target="#sm" data-parent="#menu" class="item item-icon-right" style="text-decoration:none">
-          Upcoming Events <span class="badge">{{numEvents}}</span>
-          <i class="icon ion-chevron-down"></i>
+  <div id="wrapper">
+    <div class="overlay"></div>
+    <nav class="navbar navbar-inverse navbar-fixed-top" id="sidebar-wrapper" role="navigation">
+      <ul class="nav sidebar-nav" ng-repeat="sideEvent in sideEvents">
+        <li class="sidebar-brand">
+          <a href="#">
+            <p class="text-center">Upcoming Campus Events</p>
           </a>
-          <div id="sm" class="sublinks collapse">
-            <div ng-repeat="event in selectedBuilding.events">
-              <div class="list-group-item small">
-                <div class="container-fluid">
-                  <ul class="list-inline">
-                    <li class="list-inline-item">Event: {{event[0]}}</li>
-                    <li class="list-inline-item">Location: {{event[2]}}{{event[1]}}</li>
-                    <li class="list-inline-item">When: {{event[3]}}, {{event[4]}}</li>
-                    <li class="list-inline-item">Additional Information: {{event[5]}}</li>
-                  </ul>
+        </li>
+        <li>
+        </li>
+      </ul>
+    </nav>
+    <div id="page-content-wrapper">
+      <button type="button" class="hamburger is-closed" ng-click="open()" data-toggle="offcanvas">
+        <span class="hamb-top"></span>
+        <span class="hamb-middle"></span>
+        <span class="hamb-bottom"></span>
+      </button>
+      <div class="row">
+        <ul class="list-inline text-center">
+          <li><a href="https://1drv.ms/x/s!AoEEhTIClKTDlwqlS2AaD-7Fplgf"><button class="btn btn-success" style="margin: 10px">Access Campus Event Spreadsheet on OneDrive</button></a></li>
+          <li><button class="btn btn-primary" ng-click="open()" data-toggle="offcanvas">Events</button></li>
+        </ul>
+      </div>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-lg-offset-2">
+            <div class="panel panel-default">
+              <div class="panel-body">
+                <div class="text-center">
+                  <div ng-if="!show">
+                    <div id="myExcelDiv" style="width: 402px; height: 346px; margin: 0 auto; position: absolute; top: -9999px; left: -9999px"></div>
+                    <script type="text/javascript">
+                      //use jQuery to load the script dependency for the excel web part to be displayed within the myExcelDiv above
+                      var values = [];
+                      var $scope = angular.element($('[ng-controller=View1Ctrl]')).scope();
+                      $.getScript("https://r.office.microsoft.com/r/rlidExcelWLJS?v=1&kip=1", function() {
+                        var fileToken = "SDC3A4940232850481!2954/-4349188602974632831/t=0&s=0&v=!ALFJkxr9JzZdIsk";
+                        var ewa = null;
+                        loadEwaOnPageLoad();
+                      
+                        function loadEwaOnPageLoad() {
+                          var props = {
+                            uiOptions: {
+                              showDownloadButton: false,
+                              showParametersTaskPane: false,
+                              selectedCell: 'A1'
+                            },
+                            interactivityOptions: {
+                              allowTypingAndFormulaEntry: false,
+                              allowParameterModification: false,
+                              allowSorting: false,
+                              allowFiltering: false,
+                              allowPivotTableInteractivity: false
+                            }
+                          };
+                      
+                          Ewa.EwaControl.loadEwaAsync(fileToken, "myExcelDiv", props, onEwaLoaded);
+                        }
+                      
+                        function getRangeValues(result) {
+                      
+                          var range = result.getUserContext();
+                          var values = result.getReturnValue();
+                          $scope.values = values;
+                          $scope.$apply();
+                          $scope.getExcelValues($scope.values);
+                        }
+                      
+                        function onEwaLoaded(result) {
+                          if(result.getSucceeded()) {
+                            ewa = Ewa.EwaControl.getInstances().getItem(0);
+                            var range = ewa.getActiveWorkbook().getRange("Sheet1",0,0,3,6); //(parentName, firstRow, firstColumn, rowCount, columnCount)
+                            range.getValuesAsync(Ewa.ValuesFormat.Unformatted,getRangeValues,range);
+                          }
+                        }
+                        });
+                    </script>
+                  </div>
+                  <img id="campuspic" src="ImageEdits/campus-map.png" border="0" width="100%" height="100%" orgWidth="742" orgHeight="564" usemap="#campus-map" />
+                  <map name="campus-map" id="campusmap">
+                    <area id="buildingb" href="javascript:void(0)" shape="rect" coords="322,268,365,311" style="outline:none;" target="_self"     />
+                    <area id="buildingc" href="javascript:void(0)" shape="rect" coords="272,311,323,361" style="outline:none;" target="_self"     />
+                    <area id="buildinge" href="javascript:void(0)" shape="rect" coords="309,377,360,412" style="outline:none;" target="_self"     />
+                    <area id="buildingl" href="javascript:void(0)" shape="rect" coords="370,365,421,400" style="outline:none;" target="_self"     />
+                    <area id="buildingh" href="javascript:void(0)" shape="rect" coords="417,303,468,353" style="outline:none;" target="_self"     />
+                    <area id="buildinga" href="javascript:void(0)" shape="rect" coords="533,324,625,372" style="outline:none;" target="_self"     />
+                    <area id="buildingp" href="javascript:void(0)" shape="rect" coords="644,308,702,344" style="outline:none;" target="_self"     />
+                    <area id="buildingd" href="javascript:void(0)" shape="rect" coords="698,347,737,387" style="outline:none;" target="_self"     />
+                    <area id="buildingf" href="javascript:void(0)" shape="rect" coords="627,495,666,535" style="outline:none;" target="_self"     />
+                    <area id="buildingi" href="javascript:void(0)" shape="rect" coords="494,504,510,562" style="outline:none;" target="_self"     />
+                    <area id="building3000" href="javascript:void(0)" shape="rect" coords="102,350,139,375" style="outline:none;" target="_self"     />
+                    <area id="building2000" href="javascript:void(0)" shape="rect" coords="108,290,145,315" style="outline:none;" target="_self"     />
+                    <area id="building1000" href="javascript:void(0)" shape="rect" coords="173,347,232,368" style="outline:none;" target="_self"     />
+                    <area id="buildingg" href="javascript:void(0)" shape="rect" coords="510,70,537,110" style="outline:none;" target="_self"     />
+                    <area id="parkingdeck" href="javascript:void(0)" shape="rect" coords="621,229,661,269" style="outline:none;" target="_self"     />
+                    <area id="agravelparkinglot2" href="javascript:void(0)" shape="rect" coords="448,393,489,458" style="outline:none;" target="_self"     />
+                    <area id="agravelparkinglot1" href="javascript:void(0)" shape="rect" coords="554,424,595,476" style="outline:none;" target="_self"     />
+                    <area id="housingparkinglot2" href="javascript:void(0)" shape="rect" coords="7,394,83,493" style="outline:none;" target="_self"     />
+                    <area id="housingparkinglot1" href="javascript:void(0)" shape="rect" coords="193,304,269,337" style="outline:none;" target="_self"     />
+                    <area id="bparkinglot2" href="javascript:void(0)" shape="rect" coords="401,242,504,272" style="outline:none;" target="_self"     />
+                    <area id="bbuildingparkinglot1" href="javascript:void(0)" shape="rect" coords="374,273,404,302" style="outline:none;" target="_self"     />
+                    <area id="hparkinglot" href="javascript:void(0)" shape="rect" coords="470,287,508,317" style="outline:none;" target="_self"     />
+                    <area id="aparkinglot1" href="javascript:void(0)" shape="rect" coords="488,363,524,390" style="outline:none;" target="_self"     />
+                    <area id="aparkinglot2" href="javascript:void(0)" shape="rect" coords="554,380,590,407" style="outline:none;" target="_self"     />
+                    <area shape="rect" coords="740,562,742,564" style="outline:none;" title="Image Map" href="javascript:void(0)"  />
+                  </map>
                 </div>
               </div>
             </div>
           </div>
-          <a data-toggle="collapse" data-target="#sm2" data-parent="#menu" class="item item-icon-right" style="text-decoration:none">
-          Administrative Offices <span class="badge">{{numAdministrativeServices}}</span>
-          <i class="icon ion-chevron-down"></i>
-          </a>
-          <div id="sm2" class="sublinks collapse">
-            <div ng-repeat="administrativeService in selectedBuilding.administrativeServices">
-              <div class="list-group-item small">{{administrativeService}}</div>
-            </div>
+        </div>
+      </div>
+      <!-- page-content-wrapper -->
+    </div>
+    <!-- wrapper -->
+  </div>
+</div>
+<script type="text/ng-template" id="modal.html">
+  <div ng-show="showPicModal==false" close="cancel()">
+    <div class="modal-header">
+      <h3 class="modal-title text-center">{{selectedBuilding.name}} <i class="icon ion-close-round pull-right" ng-click="cancel()"></i></h3>
+    </div>
+    <div class="modal-body">
+      <div ng-if="hasPictures">
+        <carousel3d ng-model="slides" options="options" on-selected-click="selectedClick(index)">
+          <carousel3d-slide ng-repeat="slide in slides track by $index">
+            <figure>
+              <img ng-src="{{slide.src}}" alt=""/>
+              <figcaption ng-bind="slide.caption"></figcaption>
+            </figure>
+          </carousel3d-slide>
+        </carousel3d>
+      </div>
+      <div ng-hide="!loaded">
+        <div class="progress">
+          <div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
           </div>
-          <a data-toggle="collapse" data-target="#sm3" data-parent="#menu" class="item item-icon-right" style="text-decoration:none">
-          Food Services <span class="badge">{{numFoodServices}}</span>
-          <i class="icon ion-chevron-down"></i>
-          </a>
-          <div id="sm3" class="sublinks collapse">
-            <div ng-repeat="foodService in selectedBuilding.foodServices">
-              <div class="list-group-item small">{{foodService}}</div>
+        </div>
+      </div>
+      <div ng-hide="loaded">
+        <div id="menu">
+          <div class="panel list-group">
+            <a data-toggle="collapse" data-target="#sm" data-parent="#menu" class="item item-icon-right" style="text-decoration:none">
+            Upcoming Events <span class="badge">{{numEvents}}</span>
+            <i class="icon ion-chevron-down"></i>
+            </a>
+            <div id="sm" class="sublinks collapse">
+              <div ng-repeat="event in selectedBuilding.events">
+                <div class="list-group-item small">
+                  <div class="container-fluid">
+                    <ul class="list-inline">
+                      <li class="list-inline-item">Event: {{event[0]}}</li>
+                      <li class="list-inline-item">Location: {{event[2]}}{{event[1]}}</li>
+                      <li class="list-inline-item">When: {{event[3]}}, {{event[4]}}</li>
+                      <li class="list-inline-item">Additional Information: {{event[5]}}</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
             </div>
-          </div>
-          <a data-toggle="collapse" data-target="#sm4" data-parent="#menu" class="item item-icon-right" style="text-decoration:none">
-          Additional Services <span class="badge">{{numAdditionalServices}}</span>
-          <i class="icon ion-chevron-down"></i>
-          </a>
-          <div id="sm4" class="sublinks collapse">
-            <div ng-repeat="additionalService in selectedBuilding.additionalServices">
-              <div class="list-group-item small">{{additionalService}}</div>
+            <a data-toggle="collapse" data-target="#sm2" data-parent="#menu" class="item item-icon-right" style="text-decoration:none">
+            Administrative Offices <span class="badge">{{numAdministrativeServices}}</span>
+            <i class="icon ion-chevron-down"></i>
+            </a>
+            <div id="sm2" class="sublinks collapse">
+              <div ng-repeat="administrativeService in selectedBuilding.administrativeServices">
+                <div class="list-group-item small">{{administrativeService}}</div>
+              </div>
+            </div>
+            <a data-toggle="collapse" data-target="#sm3" data-parent="#menu" class="item item-icon-right" style="text-decoration:none">
+            Food Services <span class="badge">{{numFoodServices}}</span>
+            <i class="icon ion-chevron-down"></i>
+            </a>
+            <div id="sm3" class="sublinks collapse">
+              <div ng-repeat="foodService in selectedBuilding.foodServices">
+                <div class="list-group-item small">{{foodService}}</div>
+              </div>
+            </div>
+            <a data-toggle="collapse" data-target="#sm4" data-parent="#menu" class="item item-icon-right" style="text-decoration:none">
+            Additional Services <span class="badge">{{numAdditionalServices}}</span>
+            <i class="icon ion-chevron-down"></i>
+            </a>
+            <div id="sm4" class="sublinks collapse">
+              <div ng-repeat="additionalService in selectedBuilding.additionalServices">
+                <div class="list-group-item small">{{additionalService}}</div>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-  <div class="modal-footer">
-    <button class="btn btn-warning" ng-click="cancel()">Close</button>
-  </div>
-</div>
-</div>
-<div ng-show="showPicModal==true">
-  <div class="modal-header">
-    <div class="modal-title">
-      <h3 class="modal-title text-center">{{selectedPicture.caption}} <i class="icon ion-chevron-left pull-left" ng-click="showPicModal=false"></i></h3>
+    <div class="modal-footer">
+      <button class="btn btn-warning" ng-click="cancel()">Close</button>
     </div>
   </div>
-  <div class="modal-body text-center">
-    <div class="panel panel-default">
-      <img id="picture-map" ng-src="{{selectedPicture.src}}" class="img-thumbnail">
-    </div>
   </div>
-  <div class="modal-footer"></div>
-</div>
+  <div ng-show="showPicModal==true">
+    <div class="modal-header">
+      <div class="modal-title">
+        <h3 class="modal-title text-center">{{selectedPicture.caption}} <i class="icon ion-chevron-left pull-left" ng-click="showPicModal=false"></i></h3>
+      </div>
+    </div>
+    <div class="modal-body text-center">
+      <div class="panel panel-default">
+        <img id="picture-map" ng-src="{{selectedPicture.src}}" class="img-thumbnail">
+      </div>
+    </div>
+    <div class="modal-footer"></div>
+  </div>
 </script>
