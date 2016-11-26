@@ -154,6 +154,7 @@ angular.module('myApp.view1', ['ngRoute', 'ui.bootstrap'])
 		                    }
                 		}
                 	}
+                    console.log($scope.sideEvents);
                 });
                 $scope.loaded = false;
                 $scope.$apply();

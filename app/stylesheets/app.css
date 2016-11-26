@@ -333,6 +333,10 @@
     100% { transform: rotate(360deg); }
 }
 
+.panel, .well {
+  border: 2px solid black;
+}
+
 .body {
     position: relative;
     overflow-x: hidden;
@@ -341,7 +345,8 @@ body,
 html { 
   height: 100%;
   min-height:100% !important;
-
+  background-color: #007246;
+  font-family: 'PT Sans Narrow', sans-serif !important;
 }
   
 @media (max-width: 768px) {
@@ -388,7 +393,7 @@ html {
     margin-left: -220px;
     overflow-y: auto;
     overflow-x: hidden;
-    background: #1a1a1a;
+    background: #007246;
     -webkit-transition: all 0.5s ease;
     -moz-transition: all 0.5s ease;
     -o-transition: all 0.5s ease;
@@ -437,12 +442,15 @@ html {
     z-index: -1;
     height: 100%;
     width: 3px;
-    background-color: #1c1c1c;
     -webkit-transition: width .2s ease-in;
       -moz-transition:  width .2s ease-in;
        -ms-transition:  width .2s ease-in;
             transition: width .2s ease-in;
 
+}
+
+.list-group {
+  padding: 5px 5px 5px 5px;
 }
 
 .sidebar-nav li a {
@@ -465,6 +473,8 @@ html {
 
 .sidebar-nav > .sidebar-brand {
     font-size: 20px;
+    padding-top: 5px;
+    color: #ffffff;
 }
 .sidebar-nav .dropdown-menu {
     position: relative;
@@ -475,6 +485,21 @@ html {
     border: none;
     background-color: #222;
     box-shadow: none;
+}
+
+.hamburger-header {
+  position: fixed;
+  top: 18px;  
+  display: block;
+  left: 50%;
+  transform: translateX(-50%);
+  background: transparent;
+  border: none;
+}
+
+.hamburger-header > p {
+  font-size: 28px;
+  color: #ffffff;
 }
 
 .hamburger {
@@ -488,6 +513,7 @@ html {
   background: transparent;
   border: none;
 }
+
 .hamburger:hover,
 .hamburger:focus,
 .hamburger:active {

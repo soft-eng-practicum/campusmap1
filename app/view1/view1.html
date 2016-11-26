@@ -4,13 +4,20 @@
     <nav class="navbar navbar-inverse navbar-fixed-top" id="sidebar-wrapper" role="navigation">
       <ul class="nav sidebar-nav" ng-repeat="sideEvent in sideEvents">
         <li class="sidebar-brand">
-          <a href="#">
-            <p class="text-center">Upcoming Campus Events</p>
-          </a>
+          <p class="text-center">Upcoming Campus Events</p>
         </li>
         <li>
-          <div class="row">
-            <p>{{sideEvent}}</p>
+          <div class="list-group">
+            <div class="list-group-item">
+              <h4 class="list-group-item-heading">Event: {{sideEvent[0]}}</h4>
+              <p class="list-group-item-text">
+                <ul style="text-decoration:none">
+                  <li>Location: {{sideEvent[2]}}{{sideEvent[1]}}</li>
+                  <li>Date: {{sideEvent[3]}}</li>
+                  <li>Time: {{sideEvent[4]}}</li>
+                </ul>
+              </p>
+            </a>
           </div>
         <li>
         </li>
@@ -22,6 +29,9 @@
         <span class="hamb-middle"></span>
         <span class="hamb-bottom"></span>
       </button>
+      <div class="hamburger-header">
+        <p>Campus Map</p>
+      </div>
       <div class="container">
         <div class="row" style="padding-bottom:3px">
           <div class="col-lg-12">
