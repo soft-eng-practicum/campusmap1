@@ -3,6 +3,10 @@
     <div class="overlay"></div>
     <!-- side bar functionality -->
     <nav class="navbar navbar-inverse navbar-fixed-top" id="sidebar-wrapper" role="navigation">
+      <div ng-hide="!loaded">
+        <div class="loader"></div>
+      </div>
+      <div ng-hide="loaded">
       <ul class="nav sidebar-nav" ng-repeat="sideEvent in sideEvents">
         <li class="sidebar-brand">
           <p class="text-center">Upcoming Campus Events</p>
@@ -24,6 +28,7 @@
         <li>
         </li>
       </ul>
+      </div>
     </nav>
     <div id="page-content-wrapper">
       <button type="button" class="hamburger is-closed" ng-click="open()" data-toggle="offcanvas">
@@ -155,19 +160,27 @@
         <div id="menu">
           <div class="panel list-group">
             <a data-toggle="collapse" data-target="#sm" data-parent="#menu" class="item item-icon-right" style="text-decoration:none">
-            Upcoming Events <span class="badge">{{numEvents}}</span>
+            Upcoming Events <span class="badge">{{selectedBuilding.numEvents}}</span>
             <i class="icon ion-chevron-down"></i>
             </a>
             <div id="sm" class="sublinks collapse">
               <div ng-repeat="event in selectedBuilding.events">
                 <div class="list-group-item small">
                   <div class="container-fluid">
-                    <ul class="list-inline">
-                      <li class="list-inline-item">Event: {{event[0]}}</li>
-                      <li class="list-inline-item">Location: {{event[2]}}{{event[1]}}</li>
-                      <li class="list-inline-item">When: {{event[3]}}, {{event[4]}}</li>
-                      <li class="list-inline-item">Additional Information: {{event[5]}}</li>
-                    </ul>
+                    <div class="list">
+                      <div class="item item-icon-left item-icon-right">
+                        <ul class="list-inline">
+                          <li class="list-inline-item">Event: {{event[0]}}</li>
+                          <li class="list-inline-item">|</li>
+                          <li class="list-inline-item">Location: {{event[2]}}{{event[1]}}</li>
+                          <li class="list-inline-item">|</li>
+                          <li class="list-inline-item">When: {{event[3]}}, {{event[4]}}</li>
+                          <li class="list-inline-item">|</li>
+                          <li class="list-inline-item">Additional Information: {{event[5]}}</li>
+                        </ul>
+                        <i class="icon ion-information-circled"></i>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
