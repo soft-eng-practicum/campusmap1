@@ -25,7 +25,7 @@ describe('my app', function() {
     expect(browser.getCurrentUrl()).toEqual("http://localhost:8000/etc/authors.html");
   });
 
-  it('test the OneDrive page click functionality', function() {
+  it('test the OneDrive page href value', function() {
     expect(element(by.id('oneDriveButton')).getAttribute('href')).toEqual('https://1drv.ms/x/s!AoEEhTIClKTDlwqlS2AaD-7Fplgf');
   });
 
