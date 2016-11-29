@@ -320,8 +320,8 @@
 }
 
 .loader {
-    border: 16px solid #f3f3f3; /* Light grey */
-    border-top: 16px solid #3498db; /* Blue */
+    border: 10px solid #f3f3f3; 
+    border-top: 10px solid #3498db !important; 
     border-radius: 50%;
     width: 120px;
     height: 120px;
@@ -335,6 +335,7 @@
 
 .panel, .well {
   border: 2px solid black;
+  box-shadow: 0 8px 17px rgba(0, 0, 0, .2);
 }
 
 .body {
@@ -626,13 +627,25 @@ html {
     z-index: 1;
 }
 
-#footWrap {
-   margin: 0 auto;
+.loader {
+    border: 16px solid #f3f3f3; /* Light grey */
+    border-top: 10px solid #3498db; /* Blue */
+    border-radius: 50%;
+    width: 64px;
+    height: 64px;
+    animation: spin 2s linear infinite;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    margin-top: 5px;
+
 }
-#footWrap ul { text-align: center; list-style-type: none; }
-#footWrap li { display: inline; }
-#footWrap a { padding: 2px 12px; background: orange; text-decoration: none; }
-#footWrap a:hover { background: green; color: yellow; }
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
 
 /* Prohibit portrait mode on mobile phones option
 #warning-message { 
