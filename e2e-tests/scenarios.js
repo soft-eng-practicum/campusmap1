@@ -3,40 +3,30 @@
 /* https://github.com/angular/protractor/blob/master/docs/toc.md */
 
 describe('my app', function() {
+    
+  beforeEach(function() {
+      browser.get('index.html');
+  });
 
 
   it('should automatically redirect to /view1 when location hash/fragment is empty', function() {
-    browser.get('index.html');
     expect(browser.getLocationAbsUrl()).toMatch("/view1");
   });
 
-
-  describe('view1', function() {
-
-    beforeEach(function() {
-      browser.get('index.html#!/view1');
-    });
-
-
-    it('should render view1 when user navigates to /view1', function() {
-      expect(element.all(by.css('[ng-view] p')).first().getText()).
-        toMatch(/partial for view 1/);
-    });
-
+  it('test the how to page click functionality', function() {
+    browser.ignoreSynchronization = true;
+    element(by.id('howToPage')).click();
+    expect(browser.getCurrentUrl()).toEqual("http://localhost:8000/etc/howto.html");
   });
 
-
-  describe('view2', function() {
-
-    beforeEach(function() {
-      browser.get('index.html#!/view2');
-    });
-
-
-    it('should render view2 when user navigates to /view2', function() {
-      expect(element.all(by.css('[ng-view] p')).first().getText()).
-        toMatch(/partial for view 2/);
-    });
-
+  it('test the authors page click functionality', function() {
+    browser.ignoreSynchronization = true;
+    element(by.id('authorsPage')).click();
+    expect(browser.getCurrentUrl()).toEqual("http://localhost:8000/etc/authors.html");
   });
+
+  it('test the OneDrive page click functionality', function() {
+    expect(element(by.id('oneDriveButton')).getAttribute('href')).toEqual('https://1drv.ms/x/s!AoEEhTIClKTDlwqlS2AaD-7Fplgf');
+  });
+
 });

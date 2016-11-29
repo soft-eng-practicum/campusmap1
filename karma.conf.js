@@ -6,11 +6,15 @@ module.exports = function(config) {
 
     files: [
       'bower_components/angular/angular.js',
+      'bower_components/jquery/dist/jquery.js',
+      'https://code.jquery.com/jquery-1.11.2.min.js',
       'bower_components/angular-route/angular-route.js',
       'bower_components/angular-mocks/angular-mocks.js',
+      'bower_components/angular-bootstrap/ui-bootstrap.js',
+      'bower_components/angular-bootstrap/ui-bootstrap-tpls.js',
+      'bower_components/angular-bootstrap/ui-bootstrap.min.js',
       'app/components/**/*.js',
       'app/view1/**/*.js',
-      'app/view2/**/*.js',
       'testScripts/*.js'
     ],
 
@@ -18,7 +22,7 @@ module.exports = function(config) {
 
     frameworks: ['jasmine'],
 
-    browsers: ['PhantomJS'],
+    browsers: ['Chrome'],
 
     plugins: [
       'karma-chrome-launcher',
