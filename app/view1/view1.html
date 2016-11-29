@@ -1,12 +1,14 @@
 <div ng-controller="View1Ctrl">
   <div id="wrapper">
     <div class="overlay"></div>
+    <!-- side bar functionality -->
     <nav class="navbar navbar-inverse navbar-fixed-top" id="sidebar-wrapper" role="navigation">
       <ul class="nav sidebar-nav" ng-repeat="sideEvent in sideEvents">
         <li class="sidebar-brand">
           <p class="text-center">Upcoming Campus Events</p>
         </li>
         <li>
+        <!-- Get information from the Excel event sheet and parse it onto the sidebar -->
           <div class="list-group">
             <div class="list-group-item">
               <h4 class="list-group-item-heading">Event: {{sideEvent[0]}}</h4>

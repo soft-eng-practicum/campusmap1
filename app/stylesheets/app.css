@@ -626,6 +626,14 @@ html {
     z-index: 1;
 }
 
+#footWrap {
+   margin: 0 auto;
+}
+#footWrap ul { text-align: center; list-style-type: none; }
+#footWrap li { display: inline; }
+#footWrap a { padding: 2px 12px; background: orange; text-decoration: none; }
+#footWrap a:hover { background: green; color: yellow; }
+
 /* Prohibit portrait mode on mobile phones option
 #warning-message { 
   display: none; 
